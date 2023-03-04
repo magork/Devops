@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. Setup developing infrastructure &mdash; DevOps 1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/max_width.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4. TODO" href="TODO.html" />
+    <link rel="prev" title="2. Getting around" href="getting_around.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            DevOps
+              <img src="../_static/Logo.jpg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Curriculum</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../curriculum/curriculum.html">Class Curriculum</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Introduction to DevOps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/foreword.html">Foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/devops.html">1. Introduction to DevOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/TODO.html">2. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Environments</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="environments.html">1. Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_around.html">2. Getting around</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Setup developing infrastructure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TODO.html">4. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Linux</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../linux/introduction.html">0. Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/1_managing_users_and_groups.html">1. Managing Users and Groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/2_file_management.html">2. File management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/3_managing_software.html">3. Managing Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/4_service_management.html">4. Service Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/5_process_management.html">5. Process management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/6_system_logging.html">6. System logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/7_linux_file_systems.html">7. Linux File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/8_terminal_tuning.html">8. Terminal tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/TODO.html">9. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Git</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../git/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git/bestpractices.html">1. Best practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git/TODO.html">2. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DocOps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docs_as_code/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs_as_code/installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs_as_code/deploy_docs.html">3. Deploy Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs_as_code/sphinx.html">2. What is sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs_as_code/TODO.html">4. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scripting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../scripting/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting/shell_style_guide.html">1. Shell Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting/examples.html">2. Working with aliases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting/TODO.html">3. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/data_structures.html">2. Variables and Data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/conditions_loops.html">3. Loops and conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/libraries.html">4. Libraries and modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/functions.html">5. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/classes.html">6. Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/documentation.html">7. Documenting your code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/yourfirstcli.html">8. Your first CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/rules.html">9. Python Language Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/TODO.html">10. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Containers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../containers/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/installation.html">1. Windows installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/helloworld.html">2. Running “Hello World”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/workingwithdocker.html">3. Working with Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/usingdockerfile.html">4. Using Dockerfile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/management.html">5. Container management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/orchestration.html">6. Container orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/TODO.html">7. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Kubernetes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/gettingstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/deployments.html">2. Creating a Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/argocd.html">3. ArgoCD</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pipelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pipelines/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipelines/jenkins.html">2. Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipelines/github.html">3. GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipelines/python_cli.html">2. Python CLI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Ansible</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ansible/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansible/installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansible/architecture.html">2. Ansible architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansible/gettingstarted.html">3. Getting Started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../project/introduction.html">0. Introduction</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DevOps</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">3. Setup developing infrastructure</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/environments/setup_infra.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="setup-developing-infrastructure">
+<h1>3. Setup developing infrastructure<a class="headerlink" href="#setup-developing-infrastructure" title="Permalink to this heading"></a></h1>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You must be running Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11.</p>
+</div>
+<section id="install-wsl">
+<h3>## Install WSL<a class="headerlink" href="#install-wsl" title="Permalink to this heading"></a></h3>
+<p>Run the command in an administrator PowerShell or Windows Command Prompt and then restart your machine.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wsl<span class="w"> </span>--install
+
+<span class="c1"># Some of Windows distributions have obsolete packages, you need to specify the distribution name</span>
+wsl<span class="w"> </span>--install<span class="w"> </span>-d<span class="w"> </span>Ubuntu
+
+<span class="c1"># By default, it will install Ubuntu, to install a different distribution</span>
+<span class="c1"># To see a list of available Linux distributions available for download through the online store, enter:</span>
+
+wsl<span class="w"> </span>--list<span class="w"> </span>--online
+<span class="c1"># or</span>
+
+wsl<span class="w"> </span>-l<span class="w"> </span>-o.
+
+<span class="c1"># To install additional Linux distributions after the initial install, you may also use the command:</span>
+wsl<span class="w"> </span>--install<span class="w"> </span>-d<span class="w"> </span>&lt;Distribution<span class="w"> </span>Name&gt;.
+</pre></div>
+</div>
+</section>
+</section>
+<section id="install-docker-desktop">
+<h2>Install Docker Desktop<a class="headerlink" href="#install-docker-desktop" title="Permalink to this heading"></a></h2>
+<p>Open <a class="reference external" href="https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe">https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe</a> then run the installer.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a fedora docker container</span>
+docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>fedora<span class="w"> </span>bash
+
+<span class="c1"># install utilities on the container (for normal virtual machines we don&#39;t need to install them)</span>
+dnf<span class="w"> </span>install<span class="w"> </span>util-linux<span class="w"> </span>tree<span class="w"> </span>passwd
+</pre></div>
+</div>
+<p>To find what distribution and version of Linux are you running</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>/etc/os-release
+</pre></div>
+</div>
+</section>
+<section id="install-vs-code">
+<h2>Install VS Code<a class="headerlink" href="#install-vs-code" title="Permalink to this heading"></a></h2>
+<p>Install VS Code <a class="reference external" href="https://code.visualstudio.com/Download">https://code.visualstudio.com/Download</a> To be able to run code directly on the WSL we need the WSL Extension</p>
+<p>The Linux command line is a text interface to your computer. Often referred to as the shell, terminal, console, prompt or various other names,</p>
+</section>
+<section id="setup-wsl-ubuntu-22-04">
+<h2>Setup WSL - Ubuntu 22.04<a class="headerlink" href="#setup-wsl-ubuntu-22-04" title="Permalink to this heading"></a></h2>
+<p>I decided to upgrade my wsl to the latest version Ubuntu 22.04</p>
+<p>These are the steps that I took:</p>
+<ol class="arabic simple">
+<li><p>Backup my information (I pushed all the code to git)</p></li>
+<li><p>Stop and remove the wsl</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wsl<span class="w"> </span>--shutdown
+
+wsl<span class="w"> </span>--unregister<span class="w"> </span>Ubuntu
+
+wsl<span class="w"> </span>--install<span class="w"> </span>-d<span class="w"> </span>Ubuntu
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Access the WSL - setup a new user and password</p></li>
+<li><p>Update all the packages</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+
+sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+</pre></div>
+</div>
+<p>Install packages</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>vim<span class="w"> </span>python3.11-venv<span class="w"> </span>make<span class="w"> </span>-y
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Disabled password request for my user when running sudo</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>su
+</pre></div>
+</div>
+<p>Update the <code class="docutils literal notranslate"><span class="pre">/etc/sudoers</span></code> file using <code class="docutils literal notranslate"><span class="pre">vim</span> <span class="pre">/etc/sudoers</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%sudo<span class="w">   </span><span class="nv">ALL</span><span class="o">=(</span>ALL:ALL<span class="o">)</span><span class="w"> </span>ALL
+</pre></div>
+</div>
+<p>to</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%sudo<span class="w">   </span><span class="nv">ALL</span><span class="o">=(</span>ALL:ALL<span class="o">)</span><span class="w"> </span>NOPASSWD:ALL
+</pre></div>
+</div>
+<p>Save, you need to use <code class="docutils literal notranslate"><span class="pre">wq!</span></code> don’t forget the <code class="docutils literal notranslate"><span class="pre">!</span></code>.</p>
+<ol class="arabic simple" start="6">
+<li><p>Update the <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> with aliases for root and your user</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span><span class="w"> </span><span class="nv">ll</span><span class="o">=</span><span class="s1">&#39;ls -ltrha --color=auto&#39;</span><span class="w"> </span><span class="c1"># add arguments to a command that exists</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">ls</span><span class="o">=</span><span class="s1">&#39;ls -ltrha --color=auto&#39;</span><span class="w"> </span><span class="c1"># add arguments to a command that exists</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">vi</span><span class="o">=</span><span class="s1">&#39;vim&#39;</span><span class="w"> </span><span class="c1"># redirect the old application to the new one</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">exot</span><span class="o">=</span><span class="s1">&#39;exit&#39;</span><span class="w"> </span><span class="c1"># correct typing errors</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">clera</span><span class="o">=</span><span class="s1">&#39;clear&#39;</span><span class="w"> </span><span class="c1"># correct typing errors</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">qpositive</span><span class="o">=</span><span class="s1">&#39;history -c &amp;&amp; history -w &amp;&amp; exit&#39;</span><span class="w"> </span><span class="c1"># link more commands under one</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">bing</span><span class="o">=</span><span class="s1">&#39;git push&#39;</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">bang</span><span class="o">=</span><span class="s1">&#39;git status &amp;&amp; git add --all &amp;&amp; git commit -m&#39;</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">qqqRunEnv</span><span class="o">=</span><span class="s1">&#39;. venv/bin/activate&#39;</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">eeeCreateVEnv</span><span class="o">=</span><span class="s1">&#39;python3 -m venv venv&#39;</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">duck</span><span class="o">=</span><span class="s1">&#39;cd /home/${USER}/sandbox&#39;</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">shit</span><span class="o">=</span><span class="s1">&#39;sudo $(history -p \!\!)&#39;</span>
+
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$PATH</span><span class="s2">:/home/</span><span class="si">${</span><span class="nv">USER</span><span class="si">}</span><span class="s2">/sandbox&quot;</span>
+</pre></div>
+</div>
+<p>after the update of the aliases you need to source them to have them available run <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">~/.bashrc</span></code></p>
+<ol class="arabic simple" start="7">
+<li><p>Create your sandbox</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>/home/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/sandbox
+duck
+</pre></div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>Create an ssh-key for the machine</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">USER</span><span class="si">}</span><span class="s2">@</span><span class="k">$(</span>hostname<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>read the newly created key</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>~/.ssh/id_ed25519.pub
+</pre></div>
+</div>
+<p>and add it in the GitHub <a class="reference external" href="https://github.com/settings/keys">https://github.com/settings/keys</a></p>
+<ol class="arabic simple" start="9">
+<li><p>Configure git</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;&lt;MAIL&gt;&quot;</span>
+
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;&lt;USER&gt;&quot;</span>
+
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span>vim
+</pre></div>
+</div>
+<ol class="arabic simple" start="10">
+<li><p>Clone all your projects</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="getting_around.html" class="btn btn-neutral float-left" title="2. Getting around" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="TODO.html" class="btn btn-neutral float-right" title="4. TODO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, skillab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>1. Windows installation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="windows-installation">
+<h1>1. Windows installation</h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Commercial use of Docker Desktop in larger enterprises (more than 250 employees OR more than $10 million USD in annual revenue) requires a paid subscription.
+You can use it at home, but at work ask your IT Department.</p>
+</div>
+<section id="virtualization-backend">
+<h2>Virtualization backend</h2>
+<p>There are 2 backends available:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><dl>
+<dt>WSL 2</dt><dd><p>The Windows Subsystem for Linux enables programmers to run a GNU/Linux environment directly on Windows, unaltered, without the burden of a conventional virtual machine or dual boot setup. This includes the majority of command-line tools, utilities, and applications.</p>
+<p>You can select multiple from multiple Linux distributions.</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Hyper-V</dt><dd><p>Microsoft’s hardware virtualization solution is called Hyper-V.</p>
+<p>It enables you to build and use a virtual machine, which is a software representation of a computer. Each virtual machine runs an operating system and applications, acting like a full-fledged computer.</p>
+<p>Virtual machines give you more flexibility and are a more effective method to utilize hardware than just running one operating system on actual hardware when you need computing resources.You can operate several virtual machines on the same hardware at once because Hyper-V runs each virtual machine in its own isolated environment.</p>
+</dd>
+</dl>
+</li>
+</ol>
+</div></blockquote>
+</section>
+<section id="installation-steps">
+<h2>Installation steps</h2>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Download Docker Desktop from: <a class="reference external" href="https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe">https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe</a>, then</p></li>
+<li><p>Depending on the backend you choose, make sure the Use WSL 2 instead of Hyper-V (You won’t be able to choose which backend to use if your system only supports one of the two possibilities.)</p></li>
+<li><p>To approve the installer and continue with the installation, follow the directions on the installation wizard.</p></li>
+<li><p>To finish the installation process after a successful installation, click Close.</p></li>
+</ol>
+</div></blockquote>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

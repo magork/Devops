@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>0. Introduction</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="introduction">
+<h1>0. Introduction</h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Docker is a platform that allows developers to easily create, deploy, and run applications in containers.
+Containers are lightweight, portable, and self-sufficient packaging of an application and its dependencies. They provide a consistent runtime environment and are isolated from the host operating system.</p>
+</div>
+<p>Docker is an open-source platform that provides a set of tools for creating, deploying, and managing containers. It includes a container engine, which is responsible for creating and running containers, and a set of command-line tools for interacting with the engine. Docker also provides a centralized hub, called the Docker Hub, where developers can share and discover container images.</p>
+<p>Containers are similar to virtual machines, but they are more lightweight and efficient. Unlike virtual machines, which require a separate operating system for each instance, containers share the host operating system kernel, which makes them more efficient in terms of resources. Containers also provide a consistent runtime environment, regardless of the host environment, which makes them more portable and easier to deploy.</p>
+<p>Docker allows developers to package an application and its dependencies into a single container, which can be easily deployed and run on any host that supports Docker. This makes it easier to develop and test applications locally, and then deploy them to production with confidence.</p>
+<p>Docker also provides a set of orchestration tools, such as Docker Compose and Docker Swarm, which allow developers to easily manage and scale multiple containers.</p>
+<p>In summary, Docker is a platform that allows developers to easily create, deploy, and run applications in containers. Containers are lightweight, portable, and self-sufficient packaging of an application and its dependencies, which provide a consistent runtime environment and are isolated from the host operating system. Docker provides a set of tools for creating, deploying, and managing containers, and a centralized hub for sharing and discovering container images. It also provides a set of orchestration tools for managing and scaling multiple containers.</p>
+<p>An approach to software development known as containerization involves packaging an application or service along with its dependencies and settings into a single file known as a container image. The containerized application can be tested individually and installed on the host operating system as a container image instance (OS).</p>
+<p><strong>Why do we need containers?</strong></p>
+<p>To avoid <em>“it works on my machine”</em>. By having a template from which we can create an image that can be instantiated into a container we are avoiding all the inconsistencies around the different environments: different software versions, hardware, users, and directory structure.</p>
+<p>Software containers function as a common unit of software deployment that can include many types of code and dependencies, just like shipping containers enable items to be carried by ship, rail, or truck regardless of the contents within. Developers and Operation Engineers can deploy software across environments with little to no modification by containerizing it in this way.</p>
+<section id="what-is-a-container">
+<h2>What is a container?</h2>
+<p>Containers are software packages that come with everything needed to execute in any environment. Containers virtualize the operating system in this manner, enabling them to run anywhere, including on a developer’s own laptop as well as on a public cloud or a private data center.</p>
+<p>Simply put, a container is a sandboxed process on your machine that is isolated from all other processes on the host machine</p>
+</section>
+<section id="containers-vs-pods">
+<h2>Containers vs Pods</h2>
+<p>The smallest deployable compute units that Kubernetes allows you to generate and control are called pods.</p>
+<p>A <strong>collection of one or more containers</strong>, with common storage and network resources, and a specification for how to execute the containers, is referred to as a <strong>“pod”</strong> (as in a pod of whales or pea pod).
+The components of a pod are always co-located, co-scheduled, and executed in a common context. A pod includes one or more tightly connected application containers and serves as a representation of an application-specific “logical host”. Applications running on the same physical or virtual system are comparable to cloud applications running on the same logical host in non-cloud scenarios.</p>
+</section>
+<section id="what-is-docker">
+<h2>What is Docker?</h2>
+<p>Docker is an open-source project for automating the deployment of apps as portable, autonomous containers that can run on the dev’s machine, company’s data center or cloud.</p>
+<p>A Docker container is:
+- is a runnable instance of an image. You can create, start, stop, move, or delete a container using the DockerAPI or CLI.
+- can be run on local machines, virtual machines or deployed to the cloud.
+- is portable (can be run on any OS)
+- containers are isolated from each other and run their own software, binaries, and configurations.</p>
+<p>What is a container image?</p>
+<p>When running a container, it uses an isolated filesystem. This custom filesystem is provided by a container image. Since the image contains the container’s filesystem, it must contain everything needed to run an application - all dependencies, configuration, scripts, binaries, etc. The image also contains other configuration for the container, such as environment variables, a default command to run, and other metadata.</p>
+</section>
+<section id="what-is-podman">
+<h2>What is Podman?</h2>
+<p>Podman is a daemon less container engine for developing, managing, and running containers.</p>
+<p>Read more in <a class="reference external" href="https://fedoramagazine.org/docker-and-fedora-37-migrating-to-podman/">https://fedoramagazine.org/docker-and-fedora-37-migrating-to-podman/</a></p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

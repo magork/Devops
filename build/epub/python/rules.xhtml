@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>9. Python Language Rules</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="python-language-rules">
+<h1>9. Python Language Rules</h1>
+<section id="linting">
+<h2>Linting</h2>
+<p>Lint, often known as a <cite>linter</cite>, is a tool that analyzes source code in order to detect programming errors, bugs, stylistic errors, and suspicious structures.</p>
+<p>A <cite>linter</cite>, in its simplest form, is a program that examines your code in order to identify problems that could result in errors or inconsistencies with code health and style. Some even assist you in fixing them!</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pylint<span class="w"> </span>*py
+</pre></div>
+</div>
+</section>
+<section id="static-type-checker">
+<h2>Static type checker</h2>
+<p><code class="docutils literal notranslate"><span class="pre">Mypy</span></code> is a Python static type checker that is optional and attempts to combine the advantages of static and dynamic (or “duck”) typing.
+<code class="docutils literal notranslate"><span class="pre">Mypy</span></code> combines a robust type system and compile-time type verification with Python’s expressive power and simplicity.
+<code class="docutils literal notranslate"><span class="pre">Mypy</span></code> type verifies common Python programs, which can be executed on any Python virtual machine with almost no runtime overhead.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mypy<span class="w"> </span>*py
+</pre></div>
+</div>
+</section>
+<section id="autoformatter">
+<h2>Autoformatter</h2>
+<p>Black is the uncompromising Python code formatter. By using it, you agree to cede control over minutiae of hand-formatting. In return, Black gives you speed, determinism, and freedom from pycodestyle nagging about formatting. You will save time and mental energy for more important matters.</p>
+<p>Blackened code looks the same regardless of the project you’re reading. Formatting becomes transparent after a while and you can focus on the content instead.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>black<span class="w"> </span>*py
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

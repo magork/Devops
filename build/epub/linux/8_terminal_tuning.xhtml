@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>8. Terminal tuning</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="terminal-tuning">
+<h1>8. Terminal tuning</h1>
+<section id="aliases">
+<h2>Aliases</h2>
+<p>The alias command makes it possible to launch any command or group of commands (with arguments, options, or redirection) by entering a pre-set string.</p>
+<p>Update user profile <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>, <code class="docutils literal notranslate"><span class="pre">bash_profile</span></code> or <code class="docutils literal notranslate"><span class="pre">.profile</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># add arguments to a command that exists</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">ll</span><span class="o">=</span><span class="s1">&#39;ls -ltrha --color=auto&#39;</span>
+
+<span class="c1"># add arguments to a command that exists</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">ls</span><span class="o">=</span><span class="s1">&#39;ls -ltrha --color=auto&#39;</span>
+
+<span class="c1"># redirect the old application to the new one</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">vi</span><span class="o">=</span><span class="s1">&#39;vim&#39;</span>
+
+<span class="c1"># correct typing errors</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">exot</span><span class="o">=</span><span class="s1">&#39;exit&#39;</span>
+
+<span class="c1"># correct typing errors</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">clera</span><span class="o">=</span><span class="s1">&#39;clear&#39;</span>
+
+<span class="c1"># link more commands under one</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">qpositive</span><span class="o">=</span><span class="s1">&#39;history -c &amp;&amp; history -w &amp;&amp; exit&#39;</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">bing</span><span class="o">=</span><span class="s1">&#39;git push&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">bang</span><span class="o">=</span><span class="s1">&#39;git status &amp;&amp; git add --all &amp;&amp; git commit -m&#39;</span>
+
+<span class="c1"># go to the sandbox</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">duck</span><span class="o">=</span><span class="s1">&#39;cd /home/devx/sandbox&#39;</span>
+
+<span class="c1"># activate python virtual environment</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">qqqRunVEnv</span><span class="o">=</span><span class="s1">&#39;. venv/bin/activate&#39;</span>
+
+<span class="c1"># create python virtual environment</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">eeeCreateVEnv</span><span class="o">=</span><span class="s1">&#39;python3 -m venv venv&#39;</span>
+
+<span class="c1"># run last command as root</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">zzz</span><span class="o">=</span><span class="s1">&#39;sudo $(history -p \!\!)&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="the-fuck">
+<h2>The fuck</h2>
+<p><code class="docutils literal notranslate"><span class="pre">TheFuck</span></code> is a magnificent app that corrects errors in previous console commands.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># create python environment</span>
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+
+<span class="c1"># source python environment</span>
+.<span class="w"> </span>venv/bin/activate
+
+<span class="c1"># install thefuck python library</span>
+pip<span class="w"> </span>install<span class="w"> </span>thefuck
+</pre></div>
+</div>
+<p>Update user profile <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>, <code class="docutils literal notranslate"><span class="pre">bash_profile</span></code> or <code class="docutils literal notranslate"><span class="pre">.profile</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">eval</span><span class="w"> </span><span class="k">$(</span>thefuck<span class="w"> </span>--alias<span class="w"> </span>FUCK<span class="k">)</span>
+</pre></div>
+</div>
+</section>
+<section id="run-sudo-without-password">
+<h2>Run sudo without password</h2>
+<p>Update the <code class="docutils literal notranslate"><span class="pre">/etc/sudoers</span></code> file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%sudo<span class="w">   </span><span class="nv">ALL</span><span class="o">=(</span>ALL:ALL<span class="o">)</span><span class="w"> </span>ALL
+</pre></div>
+</div>
+<p>to</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%sudo<span class="w">   </span><span class="nv">ALL</span><span class="o">=(</span>ALL:ALL<span class="o">)</span><span class="w"> </span>NOPASSWD:ALL
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

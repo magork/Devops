@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>9. TODO</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="todo">
+<h1>9. TODO</h1>
+<ol class="arabic">
+<li><p>What does this command <code class="docutils literal notranslate"><span class="pre">find</span> <span class="pre">/</span> <span class="pre">-size</span> <span class="pre">+10M</span> <span class="pre">-exec</span> <span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">{}</span> <span class="pre">\;</span></code> do?</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>It finds all files using <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> and hands them off to the find command to display.</p></li>
+<li><p>It finds all files older than 10 minutes and long lists them using the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command.</p></li>
+<li><p>It finds all files larger than 10 MB and long lists them using the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command.</p></li>
+<li><p>It uses the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command to find all files in the filesystem matching the {} wildcard.</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>Which command will tell you how long a system has been running?</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>log</p></li>
+<li><p>uptime</p></li>
+<li><p>runtime</p></li>
+<li><p>access</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>Which command in Bash executes the last line in the shell history that starts with ls?</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>!</p></li>
+<li><p>!!</p></li>
+<li><p>!*</p></li>
+<li><p>!ls</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>Why doesn’t <code class="docutils literal notranslate"><span class="pre">passwd</span> <span class="pre">-l</span></code> keep a user from logging in via other methods?</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>The passwd command is not used for locking passwords.</p></li>
+<li><p>There is no password <code class="docutils literal notranslate"><span class="pre">-l</span></code> option.</p></li>
+<li><p>It locks only the password, not the account, so users can still authenticate with keys or other methods.</p></li>
+<li><p>It does lock the account, keeping users from logging in even if they are using other authentication methods.</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>Why might you use the usermod command?</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>to log out a user</p></li>
+<li><p>to lock a user’s account</p></li>
+<li><p>to change global user account settings</p></li>
+<li><p>to set a user’s password</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>With most GNU commands, if an option is a word, what will it be preceded by?</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>two dashes –</p></li>
+<li><p>a backslash </p></li>
+<li><p>a slash /</p></li>
+<li><p>one dash -</p></li>
+<li><p>nothing</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ol>
+<ol class="arabic" start="7">
+<li><p>Which command do you use to rename a file in Linux?</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>mv</p></li>
+<li><p>rn</p></li>
+<li><p>rename</p></li>
+<li><p>ren</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some things Man was never meant to know. For everything else, there’s Google.</p>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

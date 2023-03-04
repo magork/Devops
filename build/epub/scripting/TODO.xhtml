@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>3. TODO</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="todo">
+<h1>3. TODO</h1>
+<section id="task-1">
+<h2>Task 1</h2>
+<p>Create a script <code class="docutils literal notranslate"><span class="pre">wikipython</span></code> that reads a Wikipedia page - <a class="reference external" href="https://en.wikipedia.org/wiki/Python_(genus">https://en.wikipedia.org/wiki/Python_(genus</a>) (use <code class="docutils literal notranslate"><span class="pre">curl</span></code> command)</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>extracts Species elements - python name (what kind of pythons are there) - use <code class="docutils literal notranslate"><span class="pre">grep</span></code></p></li>
+<li><p>save the output the to a new file</p></li>
+<li><p>append to the new file the last line that is the count of species - using <code class="docutils literal notranslate"><span class="pre">wc</span></code></p></li>
+</ol>
+</div></blockquote>
+</section>
+<section id="task-2">
+<h2>Task 2</h2>
+<p>Create a script <code class="docutils literal notranslate"><span class="pre">`weather`</span></code> that give you the weather from curl <a class="reference external" href="https://wttr.in/(location">https://wttr.in/(location</a>)</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>the location will be read from the keyboard - example <code class="docutils literal notranslate"><span class="pre">weather</span> <span class="pre">Bucharest</span></code></p></li>
+<li><p>test that you have the location</p></li>
+<li><p>test that location is a valid string and doesn’t contain numbers using a regex operator compare a variable with <code class="docutils literal notranslate"><span class="pre">$var</span> <span class="pre">=~</span> <span class="pre">'^[0-9]+$'</span></code></p></li>
+</ol>
+</div></blockquote>
+</section>
+<section id="task-3">
+<h2>Task 3</h2>
+<p>Create a health check script <code class="docutils literal notranslate"><span class="pre">healthCheck</span></code> that looks at:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code> and time</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">uptime</span></code> of the machine</p></li>
+<li><p>how much disk <code class="docutils literal notranslate"><span class="pre">df</span></code> and memory usage <code class="docutils literal notranslate"><span class="pre">free</span></code></p></li>
+<li><p>top most expensive process</p></li>
+<li><p>run this every 2 seconds using <code class="docutils literal notranslate"><span class="pre">sleep</span></code> or <code class="docutils literal notranslate"><span class="pre">watch</span></code></p></li>
+</ol>
+</div></blockquote>
+</section>
+<section id="task-4">
+<h2>Task 4</h2>
+<p>Create a script that reads the file <code class="docutils literal notranslate"><span class="pre">source_code/scripting/data/ip.txt</span></code> and:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Find out how many different IPs?</p></li>
+<li><p>How many exit different codes?</p></li>
+<li><p>How many occurrences of each exit code?</p></li>
+<li><p>How often an IP appears?</p></li>
+<li><p>Which IP has experienced the most successes and failures?</p></li>
+</ol>
+</div></blockquote>
+</section>
+<section id="task-5">
+<h2>Task 5</h2>
+<p>Create a script that reads the file <code class="docutils literal notranslate"><span class="pre">source_code/scripting/data/hadoop.log</span></code> and:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Find out how many INFO, WARN ERROR messages are, and print the percentage compared to the total lines</p></li>
+<li><p>Which error appears most frequently?</p></li>
+<li><p>Are there any weird messages in the log?</p></li>
+</ol>
+</div></blockquote>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

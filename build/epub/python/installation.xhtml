@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>1. Installation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="installation">
+<h1>1. Installation</h1>
+<section id="install-on-wsl-ubuntu22-04">
+<h2>Install on WSL(Ubuntu22.04)</h2>
+<p>Python is already installed on your machine (the Linux Kernel is using it) - with version 3.10.
+Because Python3.11 has a major performance improvement - we want it.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add deadsnakes(from old versions of Python) repository</span>
+<span class="c1"># More information about deadsnakes https://github.com/deadsnakes/</span>
+sudo<span class="w"> </span>add-apt-repository<span class="w"> </span>ppa:deadsnakes/ppa
+
+<span class="c1"># Refresh the cache using the below command.</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>update
+
+<span class="c1"># And install Python 3.11 using the below command.</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3.11<span class="w"> </span>python3.11-venv<span class="w"> </span>-y
+</pre></div>
+</div>
+<p>In order not to affect the Kernel, we use virtual environments.</p>
+<p>Applications written in Python frequently use packages and modules that are not included in the standard library.
+Applications will sometimes require a particular version of a library because they may need a specific issue to be solved or they may have been created using an outdated version of the library’s interface.</p>
+<p>Making a virtual environment—a self-contained directory tree including a Python installation for a certain version of Python and a number of additional packages—is the answer to this issue.</p>
+<p>In Python we normally don’t use as much docker when deploying/running applications - we use Virtual Environment</p>
+<p>More about virtual environments: <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">https://docs.python.org/3/tutorial/venv.html</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3.11<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate
+
+<span class="c1"># Once in venv run</span>
+python3.11
+
+<span class="c1"># Write your hello world</span>
+print<span class="o">(</span><span class="s2">&quot;Hello World&quot;</span><span class="o">)</span>
+
+<span class="c1"># To exit</span>
+<span class="c1"># Control+D or write exit()</span>
+
+<span class="c1"># Care about the different version of Python</span>
+<span class="c1"># If you run</span>
+python
+<span class="c1"># or</span>
+python3
+<span class="c1"># or</span>
+python3.10
+<span class="c1"># or</span>
+python3.11
+
+<span class="c1"># That means our shebang will be different</span>
+<span class="c1">#!/usr/bin/env python3.11</span>
+</pre></div>
+</div>
+</section>
+<section id="set-default-python-versions">
+<h2>Set Default Python Versions</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can install multiple versions of Python in Linux distros, but the default can only be one version.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Make sure you know which applications depend on Python 3.10, because you can break some application</p>
+</div>
+<p>You can easily find it out using apt-cache rdepends command as below.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt-cache<span class="w"> </span>rdepends<span class="w"> </span>python3.10
+</pre></div>
+</div>
+<p>Create symbolic links for the executable and set it up as default</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use update-alternatives to create symbolic links to python3</span>
+sudo<span class="w"> </span>update-alternatives<span class="w"> </span>--install<span class="w"> </span>/usr/bin/python3<span class="w"> </span>python3<span class="w"> </span>/usr/bin/python3.10<span class="w"> </span><span class="m">1</span>
+
+sudo<span class="w"> </span>update-alternatives<span class="w"> </span>--install<span class="w"> </span>/usr/bin/python3<span class="w"> </span>python3<span class="w"> </span>/usr/bin/python3.11<span class="w"> </span><span class="m">2</span>
+
+<span class="c1"># And choose which one to use as Python3 via the command:</span>
+sudo<span class="w"> </span>update-alternatives<span class="w"> </span>--config<span class="w"> </span>python3
+</pre></div>
+</div>
+</section>
+<section id="where-to-code">
+<h2>Where to code</h2>
+<section id="python-s-embedded-shell">
+<h3>1. Python’s embedded shell</h3>
+<blockquote>
+<div><p>Why???</p>
+</div></blockquote>
+</section>
+<section id="microsoft-code">
+<h3>2. Microsoft code</h3>
+<p>A powerful, lightweight free code editor with integrated tools to easily deploy your code to Azure. - <a class="reference external" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></p>
+<dl class="simple">
+<dt>PRO:</dt><dd><ul class="simple">
+<li><p>lots of extensions</p></li>
+<li><p>available Linux and Windows</p></li>
+<li><p>can run code on WSL</p></li>
+<li><p>support for Azure, docker and Kubernetes</p></li>
+</ul>
+</dd>
+<dt>CON:</dt><dd><ul class="simple">
+<li><p>some extensions are behind a paywall</p></li>
+<li><p>you need to tune it before it’s amazing</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="jupyter-notebook">
+<h3>3. Jupyter Notebook</h3>
+<p>JupyterLab is the latest web-based interactive development environment for notebooks, code, and data. Its flexible interface allows users to configure and arrange workflows in data science, scientific computing, computational journalism, and machine learning. A modular design invites extensions to expand and enrich functionality. - <a class="reference external" href="https://jupyter.org/">https://jupyter.org/</a></p>
+<p>It’s Python based so you need to install it using pip</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># If you have not created and activated venv</span>
+python3.11<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate
+
+<span class="c1"># Install</span>
+pip<span class="w"> </span>install<span class="w"> </span>jupyter
+
+<span class="c1"># Run</span>
+jupyter<span class="w"> </span>notebook
+
+<span class="c1"># Copy the link into a browser</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>PRO:</dt><dd><ul class="simple">
+<li><p>it allows you to start and play with code</p></li>
+<li><p>is amazing for data science/ml or if you’re trying to visualize data</p></li>
+<li><p>can be run on a server and multiple people can access it</p></li>
+<li><p>is embedded into Microsoft Code</p></li>
+</ul>
+</dd>
+<dt>CON:</dt><dd><ul class="simple">
+<li><p>it’s not for OOP programming</p></li>
+<li><p>hard to work if the feed will grow too much</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>2. Jenkins</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="jenkins">
+<h1>2. Jenkins</h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Jenkins is a popular open-source automation server for building, testing, and deploying software. It provides a way to automate the software development process, including building, testing, and deploying code, enabling developers to focus on writing code.</p>
+</div>
+<p>Jenkins supports a wide range of development languages, platforms, and tools and can be extended through the use of plugins. It can be run on-premises or in the cloud, and can be easily integrated with other tools and services, such as Git, Docker, and Kubernetes.</p>
+<p>Some key features of Jenkins include:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Continuous Integration: Automatically building and testing code every time changes are committed to a code repository.</p></li>
+<li><p>Pipeline Support: Creating and executing pipelines, a series of tasks and stages, to automate the software development process.</p></li>
+<li><p>Plugins: Extending Jenkins functionality through the use of plugins, which add new features and capabilities to Jenkins.</p></li>
+<li><p>Distributed Builds: Running builds on multiple machines in parallel to improve build times and reduce the risk of build failures.</p></li>
+<li><p>Reporting and Monitoring: Providing real-time feedback and notifications on build results, including test results and code quality metrics.</p></li>
+</ol>
+</div></blockquote>
+<p>Jenkins is widely used for continuous integration and delivery and provides a flexible and scalable platform for automating the software development process.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span>-p<span class="w"> </span><span class="m">50000</span>:50000<span class="w"> </span>-v<span class="w"> </span>jenkins_home:/var/jenkins_home<span class="w"> </span>jenkins/jenkins:lts-jdk11
+</pre></div>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. Getting started &mdash; DevOps 1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/max_width.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. Creating a Deployment" href="deployments.html" />
+    <link rel="prev" title="0. Introduction" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            DevOps
+              <img src="../_static/Logo.jpg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Curriculum</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../curriculum/curriculum.html">Class Curriculum</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Introduction to DevOps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/foreword.html">Foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/devops.html">1. Introduction to DevOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/TODO.html">2. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Environments</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../environments/environments.html">1. Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environments/getting_around.html">2. Getting around</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environments/setup_infra.html">3. Setup developing infrastructure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environments/TODO.html">4. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Linux</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../linux/introduction.html">0. Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/1_managing_users_and_groups.html">1. Managing Users and Groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/2_file_management.html">2. File management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/3_managing_software.html">3. Managing Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/4_service_management.html">4. Service Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/5_process_management.html">5. Process management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/6_system_logging.html">6. System logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/7_linux_file_systems.html">7. Linux File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/8_terminal_tuning.html">8. Terminal tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/TODO.html">9. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Git</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../git/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git/bestpractices.html">1. Best practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git/TODO.html">2. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DocOps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docs_as_code/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs_as_code/installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs_as_code/deploy_docs.html">3. Deploy Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs_as_code/sphinx.html">2. What is sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs_as_code/TODO.html">4. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scripting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../scripting/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting/shell_style_guide.html">1. Shell Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting/examples.html">2. Working with aliases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting/TODO.html">3. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/data_structures.html">2. Variables and Data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/conditions_loops.html">3. Loops and conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/libraries.html">4. Libraries and modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/functions.html">5. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/classes.html">6. Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/documentation.html">7. Documenting your code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/yourfirstcli.html">8. Your first CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/rules.html">9. Python Language Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/TODO.html">10. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Containers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../containers/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/installation.html">1. Windows installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/helloworld.html">2. Running “Hello World”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/workingwithdocker.html">3. Working with Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/usingdockerfile.html">4. Using Dockerfile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/management.html">5. Container management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/orchestration.html">6. Container orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/TODO.html">7. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Kubernetes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">0. Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployments.html">2. Creating a Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="argocd.html">3. ArgoCD</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pipelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pipelines/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipelines/jenkins.html">2. Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipelines/github.html">3. GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipelines/python_cli.html">2. Python CLI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Ansible</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ansible/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansible/installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansible/architecture.html">2. Ansible architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansible/gettingstarted.html">3. Getting Started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../project/introduction.html">0. Introduction</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DevOps</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">1. Getting started</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/kubernetes/gettingstarted.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="getting-started">
+<h1>1. Getting started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h1>
+<section id="using-kubectl">
+<h2>Using kubectl<a class="headerlink" href="#using-kubectl" title="Permalink to this heading"></a></h2>
+<p>Open Powershell from your Windows machine.</p>
+<p><code class="docutils literal notranslate"><span class="pre">kubectl</span></code> is the main Kubernetes command-line tool. It’s what you’ll use for most Kubernetes management tasks, and we use it extensively in the examples. It’s available for most operating systems and architectures.</p>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">PS C:\Users\xcara&gt;</span> kubectl --help
+<span class="go">kubectl controls the Kubernetes cluster manager.</span>
+
+<span class="go">Find more information at: https://kubernetes.io/docs/reference/kubectl/</span>
+
+<span class="go">Basic Commands (Beginner):</span>
+<span class="go">create          Create a resource from a file or from stdin</span>
+<span class="go">expose          Take a replication controller, service, deployment or pod and expose it as a new Kubernetes service</span>
+<span class="go">run             Run a particular image on the cluster</span>
+<span class="go">set             Set specific features on objects</span>
+
+<span class="go">Basic Commands (Intermediate):</span>
+<span class="go">explain         Get documentation for a resource</span>
+<span class="go">get             Display one or many resources</span>
+<span class="go">edit            Edit a resource on the server</span>
+<span class="go">delete          Delete resources by file names, stdin, resources and names, or by resources and label selector</span>
+
+<span class="go">Deploy Commands:</span>
+<span class="go">rollout         Manage the rollout of a resource</span>
+<span class="go">scale           Set a new size for a deployment, replica set, or replication controller</span>
+<span class="go">autoscale       Auto-scale a deployment, replica set, stateful set, or replication controller</span>
+
+<span class="go">Cluster Management Commands:</span>
+<span class="go">certificate     Modify certificate resources.</span>
+<span class="go">cluster-info    Display cluster information</span>
+<span class="go">top             Display resource (CPU/memory) usage</span>
+<span class="go">cordon          Mark node as unschedulable</span>
+<span class="go">uncordon        Mark node as schedulable</span>
+<span class="go">drain           Drain node in preparation for maintenance</span>
+<span class="go">taint           Update the taints on one or more nodes</span>
+
+<span class="go">Troubleshooting and Debugging Commands:</span>
+<span class="go">describe        Show details of a specific resource or group of resources</span>
+<span class="go">logs            Print the logs for a container in a pod</span>
+<span class="go">attach          Attach to a running container</span>
+<span class="go">exec            Execute a command in a container</span>
+<span class="go">port-forward    Forward one or more local ports to a pod</span>
+<span class="go">proxy           Run a proxy to the Kubernetes API server</span>
+<span class="go">cp              Copy files and directories to and from containers</span>
+<span class="go">auth            Inspect authorization</span>
+<span class="go">debug           Create debugging sessions for troubleshooting workloads and nodes</span>
+
+<span class="go">Advanced Commands:</span>
+<span class="go">diff            Diff the live version against a would-be applied version</span>
+<span class="go">apply           Apply a configuration to a resource by file name or stdin</span>
+<span class="go">patch           Update fields of a resource</span>
+<span class="go">replace         Replace a resource by file name or stdin</span>
+<span class="go">wait            Experimental: Wait for a specific condition on one or many resources</span>
+<span class="go">kustomize       Build a kustomization target from a directory or URL.</span>
+
+<span class="go">Settings Commands:</span>
+<span class="go">label           Update the labels on a resource</span>
+<span class="go">annotate        Update the annotations on a resource</span>
+<span class="go">completion      Output shell completion code for the specified shell (bash, zsh, fish, or powershell)</span>
+
+<span class="go">Other Commands:</span>
+<span class="go">alpha           Commands for features in alpha</span>
+<span class="go">api-resources   Print the supported API resources on the server</span>
+<span class="go">api-versions    Print the supported API versions on the server, in the form of &quot;group/version&quot;</span>
+<span class="go">config          Modify kubeconfig files</span>
+<span class="go">plugin          Provides utilities for interacting with plugins</span>
+<span class="go">version         Print the client and server version information</span>
+
+<span class="go">Usage:</span>
+<span class="go">kubectl [flags] [options]</span>
+
+<span class="gp">Use &quot;kubectl &lt;command&gt;</span> --help<span class="s2">&quot; for more information about a given command.</span>
+<span class="go">Use &quot;kubectl options&quot; for a list of global command-line options (applies to all commands).</span>
+</pre></div>
+</div>
+<p>Verify the cluster with the following command.</p>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">PS C:\Users\windows_user&gt;</span> kubectl get nodes
+<span class="go">NAME             STATUS   ROLES           AGE    VERSION</span>
+<span class="go">docker-desktop   Ready    control-plane   6m2s   v1.25.4</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">kubectl</span></code> configuration file is called config and lives in a hidden directory called <code class="docutils literal notranslate"><span class="pre">kube</span></code> in your home directory <code class="docutils literal notranslate"><span class="pre">$HOME/.kube/config</span></code>. We normally call it the <code class="docutils literal notranslate"><span class="pre">kubeconfig</span></code> file, and it contains definitions for</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Clusters</p></li>
+<li><p>Users (credentials)</p></li>
+<li><p>Contexts</p></li>
+</ol>
+</div></blockquote>
+<p>You can view your <code class="docutils literal notranslate"><span class="pre">kubeconfig</span></code> using the <code class="docutils literal notranslate"><span class="pre">kubectl</span></code> config view command.</p>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">PS C:\Users\windows_user&gt;</span> kubectl config view
+<span class="go">apiVersion: v1</span>
+<span class="go">clusters:</span>
+<span class="go">- cluster:</span>
+<span class="go">    certificate-authority-data: DATA+OMITTED</span>
+<span class="go">    server: https://kubernetes.docker.internal:6443</span>
+<span class="go">name: docker-desktop</span>
+<span class="go">contexts:</span>
+<span class="go">- context:</span>
+<span class="go">    cluster: docker-desktop</span>
+<span class="go">    user: docker-desktop</span>
+<span class="go">name: docker-desktop</span>
+<span class="go">current-context: docker-desktop</span>
+<span class="go">kind: Config</span>
+<span class="go">preferences: {}</span>
+<span class="go">users:</span>
+<span class="go">- name: docker-desktop</span>
+<span class="go">user:</span>
+<span class="go">    client-certificate-data: REDACTED</span>
+<span class="go">    client-key-data: REDACTED</span>
+</pre></div>
+</div>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">kubectl</span></code> config current-context to see your current context. The following example shows a system where <code class="docutils literal notranslate"><span class="pre">kubectl</span></code> is configured to use the cluster and user-defined in a context called docker-desktop.</p>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">PS C:\Users\windows_user&gt;</span> kubectl config current-context
+<span class="go">docker-desktop</span>
+</pre></div>
+</div>
+<p>Run a <code class="docutils literal notranslate"><span class="pre">kubectl</span></code> explain pods command to list all possible Pod attributes.</p>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">PS C:\Users\windows_user&gt;</span> kubectl explain pods --recursive
+<span class="go">KIND:     Pod</span>
+<span class="go">VERSION:  v1</span>
+
+<span class="go">DESCRIPTION:</span>
+<span class="go">    Pod is a collection of containers that can run on a host. This resource is</span>
+<span class="go">    created by clients and scheduled onto hosts.</span>
+
+<span class="go">FIELDS:</span>
+<span class="gp">apiVersion   &lt;string&gt;</span>
+<span class="gp">kind &lt;string&gt;</span>
+<span class="gp">metadata     &lt;Object&gt;</span>
+<span class="gp">    annotations       &lt;map[string]string&gt;</span>
+<span class="gp">    creationTimestamp &lt;string&gt;</span>
+<span class="gp">    deletionGracePeriodSeconds        &lt;integer&gt;</span>
+<span class="gp">    deletionTimestamp &lt;string&gt;</span>
+<span class="gp">    finalizers        &lt;[]string&gt;</span>
+<span class="gp">    generateName      &lt;string&gt;</span>
+<span class="gp">    generation        &lt;integer&gt;</span>
+<span class="gp">    labels    &lt;map[string]string&gt;</span>
+<span class="gp">    managedFields     &lt;[]Object&gt;</span>
+<span class="gp">        apiVersion     &lt;string&gt;</span>
+<span class="gp">        fieldsType     &lt;string&gt;</span>
+<span class="gp">        fieldsV1       &lt;map[string]&gt;</span>
+<span class="gp">        manager        &lt;string&gt;</span>
+<span class="gp">        operation      &lt;string&gt;</span>
+<span class="gp">        subresource    &lt;string&gt;</span>
+<span class="gp">        time   &lt;string&gt;</span>
+<span class="gp">    name      &lt;string&gt;</span>
+<span class="gp">    namespace &lt;string&gt;</span>
+<span class="gp">    ownerReferences   &lt;[]Object&gt;</span>
+<span class="gp">        apiVersion     &lt;string&gt;</span>
+<span class="gp">        blockOwnerDeletion     &lt;boolean&gt;</span>
+<span class="gp">        controller     &lt;boolean&gt;</span>
+<span class="gp">        kind   &lt;string&gt;</span>
+<span class="gp">        name   &lt;string&gt;</span>
+<span class="gp">        uid    &lt;string&gt;</span>
+<span class="gp">    resourceVersion   &lt;string&gt;</span>
+<span class="gp">    selfLink  &lt;string&gt;</span>
+<span class="gp">    uid       &lt;string&gt;</span>
+<span class="gp">spec &lt;Object&gt;</span>
+</pre></div>
+</div>
+<p>To find out more about different attributes, you can use</p>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">PS C:\Users\windows_user&gt;</span> kubectl explain pod.metadata
+<span class="go">KIND:     Pod</span>
+<span class="go">VERSION:  v1</span>
+
+<span class="gp">RESOURCE: metadata &lt;Object&gt;</span>
+
+<span class="go">DESCRIPTION:</span>
+<span class="go">    Standard object&#39;s metadata. More info:</span>
+<span class="go">    https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata</span>
+
+<span class="go">    ObjectMeta is metadata that all persisted resources must have, which</span>
+<span class="go">    includes all objects users must create.</span>
+</pre></div>
+</div>
+</section>
+<section id="create-a-deployment">
+<h2>Create a Deployment<a class="headerlink" href="#create-a-deployment" title="Permalink to this heading"></a></h2>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl create deployment hello-node --image=registry.k8s.io/e2e-test-images/agnhost:2.39 -- /agnhost netexec --http-port=8080</span>
+
+<span class="go">kubectl get deployments</span>
+<span class="go">kubectl get pods</span>
+<span class="go">kubectl get events</span>
+</pre></div>
+</div>
+</section>
+<section id="create-a-service">
+<h2>Create a Service<a class="headerlink" href="#create-a-service" title="Permalink to this heading"></a></h2>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl expose deployment hello-node --type=LoadBalancer --port=8080</span>
+<span class="go">kubectl get services</span>
+</pre></div>
+</div>
+<p>Open <code class="docutils literal notranslate"><span class="pre">localhost:8080</span></code> on your browser.</p>
+<p>Remove deployment and service.</p>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">PS C:\Users\windows_user&gt;</span> kubectl delete service hello-node
+<span class="go">service &quot;hello-node&quot; deleted</span>
+
+<span class="gp">PS C:\Users\windows_user&gt;</span> kubectl delete deployment hello-node
+<span class="go">deployment.apps &quot;hello-node&quot; deleted</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="introduction.html" class="btn btn-neutral float-left" title="0. Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="deployments.html" class="btn btn-neutral float-right" title="2. Creating a Deployment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, skillab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

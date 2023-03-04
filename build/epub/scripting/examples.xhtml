@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>2. Working with aliases</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="working-with-aliases">
+<h1>2. Working with aliases</h1>
+<p>We can automate a lot of our work, by running multiple commands at the same time. Aliases are another way to make your life easier.</p>
+<p>In Linux, an alias is a shortcut that references a command. An alias replaces a string that invokes a command in the Linux shell with another user-defined string.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># same file we modified it for paths</span>
+vim<span class="w"> </span>~/.bashrc
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">bang</span><span class="o">=</span><span class="s1">&#39;git status &amp;&amp; git add --all &amp;&amp; git commit -m &#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">bing</span><span class="o">=</span><span class="s1">&#39;git push&#39;</span>
+.<span class="w"> </span>~/.bashrc
+
+<span class="c1"># when we run the command will be</span>
+bang<span class="w"> </span><span class="s2">&quot;Commit message&quot;</span><span class="p">;</span><span class="w"> </span>bing
+</pre></div>
+</div>
+<section id="create-a-script-that-runs-the-same-functionalities-as-aliases">
+<h2>Create a script that runs the same functionalities as aliases</h2>
+<p>Create script, add executable permission edit content</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch<span class="w"> </span>wwwGitPush<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>wwwGitPush<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>vim<span class="w"> </span>wwwGitPush
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># !/usr/bin/env bash</span>
+
+<span class="c1">######################################</span>
+<span class="c1"># Automates the git push process.</span>
+<span class="c1"># Usage: ./scriptName</span>
+<span class="c1"># Author: Skillab Team</span>
+<span class="c1"># Copyright: Bla Bla Bla</span>
+<span class="c1">######################################</span>
+
+<span class="c1">######################################</span>
+<span class="c1"># Description</span>
+<span class="c1"># checks the status of the repository</span>
+<span class="c1"># adds all the updated files</span>
+<span class="c1"># adds a message commit</span>
+<span class="c1"># pushes the code to the</span>
+<span class="c1"># Globals:</span>
+<span class="c1">#        None</span>
+<span class="c1"># Arguments:</span>
+<span class="c1">#        ${1} - Commit Message</span>
+<span class="c1">######################################</span>
+
+<span class="k">function</span><span class="w"> </span>pushCode<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+git<span class="w"> </span>status
+git<span class="w"> </span>add<span class="w"> </span>--all
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span>
+git<span class="w"> </span>push
+<span class="o">}</span>
+
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$#</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span>pushCode<span class="o">()</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[INFO]: Code pushed.&quot;</span>
+<span class="k">else</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[ERROR]: No arguments supplied.&quot;</span>
+<span class="k">fi</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

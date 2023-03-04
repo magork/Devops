@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>2. Creating a Deployment</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="creating-a-deployment">
+<h1>2. Creating a Deployment</h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A Kubernetes Deployment is a declarative way to manage the desired state of a group of containers. A Deployment defines the desired state of your application, including the number of replicas you want to run and the configuration of the containers.</p>
+</div>
+<p>The Deployment ensures that the desired state is always maintained, even if worker nodes in the cluster fail. If a node fails, the Deployment automatically replaces the containers running on that node with new containers on another node.</p>
+<p>A Deployment also provides other benefits, such as rolling updates and rollbacks. A rolling update allows you to update your application without downtime, by gradually replacing old replicas with new ones. If there is an issue with the update, you can easily roll back to the previous version of your application.</p>
+<p>To create a Deployment, you need to provide a YAML file that defines the desired state of your application, including the number of replicas, the image for the containers, and the desired state of the containers. You can then use the Kubernetes command line interface (CLI) to create the Deployment.</p>
+<p>A Kubernetes Deployment is a powerful tool that provides a simple and reliable way to manage the desired state of your applications in a cluster, allowing you to easily scale, update, and manage your applications.</p>
+<p>Create a new file <code class="docutils literal notranslate"><span class="pre">nginx-deployment.yaml</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apiVersion:<span class="w"> </span>apps/v1
+kind:<span class="w"> </span>Deployment
+metadata:
+name:<span class="w"> </span>nginx-deployment
+labels:
+<span class="w">    </span>app:<span class="w"> </span>nginx
+spec:
+replicas:<span class="w"> </span><span class="m">3</span>
+selector:
+<span class="w">    </span>matchLabels:
+<span class="w">    </span>app:<span class="w"> </span>nginx
+template:
+<span class="w">    </span>metadata:
+<span class="w">    </span>labels:
+<span class="w">        </span>app:<span class="w"> </span>nginx
+<span class="w">    </span>spec:
+<span class="w">    </span>containers:
+<span class="w">    </span>-<span class="w"> </span>name:<span class="w"> </span>nginx
+<span class="w">        </span>image:<span class="w"> </span>nginx:1.14.2
+<span class="w">        </span>ports:
+<span class="w">        </span>-<span class="w"> </span>containerPort:<span class="w"> </span><span class="m">80</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>nginx-deployment.yaml
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linux_user@linux_machine:~/sandbox<span class="w"> </span>$<span class="w"> </span>kubectl<span class="w"> </span>get<span class="w"> </span>deployments
+NAME<span class="w">               </span>READY<span class="w">   </span>UP-TO-DATE<span class="w">   </span>AVAILABLE<span class="w">   </span>AGE
+nginx-deployment<span class="w">   </span><span class="m">3</span>/3<span class="w">     </span><span class="m">3</span><span class="w">            </span><span class="m">3</span><span class="w">           </span>4m14s
+</pre></div>
+</div>
+<p>Find out more:
+.. code-block:: bash</p>
+<blockquote>
+<div><p>kubectl describe deployments</p>
+</div></blockquote>
+<p>Updating running deployments</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span><span class="nb">set</span><span class="w"> </span>image<span class="w"> </span>deployment/nginx-deployment<span class="w"> </span><span class="nv">nginx</span><span class="o">=</span>nginx:1.16.1
+<span class="c1"># or</span>
+kubectl<span class="w"> </span>edit<span class="w"> </span>deployment/nginx-deployment
+
+<span class="c1"># Roll the update</span>
+kubectl<span class="w"> </span>rollout<span class="w"> </span>status<span class="w"> </span>deployment/nginx-deployment
+</pre></div>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

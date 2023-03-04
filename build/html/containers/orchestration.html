@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6. Container orchestration &mdash; DevOps 1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/max_width.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7. TODO" href="TODO.html" />
+    <link rel="prev" title="5. Container management" href="management.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            DevOps
+              <img src="../_static/Logo.jpg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Curriculum</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../curriculum/curriculum.html">Class Curriculum</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Introduction to DevOps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/foreword.html">Foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/devops.html">1. Introduction to DevOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/TODO.html">2. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Environments</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../environments/environments.html">1. Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environments/getting_around.html">2. Getting around</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environments/setup_infra.html">3. Setup developing infrastructure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environments/TODO.html">4. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Linux</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../linux/introduction.html">0. Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/1_managing_users_and_groups.html">1. Managing Users and Groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/2_file_management.html">2. File management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/3_managing_software.html">3. Managing Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/4_service_management.html">4. Service Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/5_process_management.html">5. Process management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/6_system_logging.html">6. System logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/7_linux_file_systems.html">7. Linux File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/8_terminal_tuning.html">8. Terminal tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/TODO.html">9. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Git</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../git/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git/bestpractices.html">1. Best practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git/TODO.html">2. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DocOps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docs_as_code/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs_as_code/installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs_as_code/deploy_docs.html">3. Deploy Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs_as_code/sphinx.html">2. What is sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs_as_code/TODO.html">4. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scripting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../scripting/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting/shell_style_guide.html">1. Shell Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting/examples.html">2. Working with aliases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting/TODO.html">3. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/data_structures.html">2. Variables and Data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/conditions_loops.html">3. Loops and conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/libraries.html">4. Libraries and modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/functions.html">5. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/classes.html">6. Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/documentation.html">7. Documenting your code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/yourfirstcli.html">8. Your first CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/rules.html">9. Python Language Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/TODO.html">10. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Containers</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Windows installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="helloworld.html">2. Running “Hello World”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workingwithdocker.html">3. Working with Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingdockerfile.html">4. Using Dockerfile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management.html">5. Container management</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Container orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TODO.html">7. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Kubernetes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/gettingstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/deployments.html">2. Creating a Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/argocd.html">3. ArgoCD</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pipelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pipelines/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipelines/jenkins.html">2. Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipelines/github.html">3. GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipelines/python_cli.html">2. Python CLI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Ansible</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ansible/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansible/installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansible/architecture.html">2. Ansible architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansible/gettingstarted.html">3. Getting Started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../project/introduction.html">0. Introduction</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DevOps</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">6. Container orchestration</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/containers/orchestration.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="container-orchestration">
+<h1>6. Container orchestration<a class="headerlink" href="#container-orchestration" title="Permalink to this heading"></a></h1>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Docker compose</p></th>
+<th class="head"><p>Docker Swarm</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Simple container orchestration</p></td>
+<td><p>cluster orchestration</p></td>
+</tr>
+<tr class="row-odd"><td><p>orchestration deployment tool it helps users deploying adhoc containers</p></td>
+<td><p>orchestration management tool for Docker applications, it helps users in setting up and deploying a Docker node cluster</p></td>
+</tr>
+<tr class="row-even"><td><p>build tool that lets you define and configure a group of related containers</p></td>
+<td><p>manages multiple docker engines in a way that lets you treat them almost as a single unit. Swarm exposes an API that is mostly compatible with the Docker Remote API, which allows existing applications to use Swarm to scale horizontally without having to completely overhaul the existing interface to the container engine</p></td>
+</tr>
+</tbody>
+</table>
+<section id="docker-compose">
+<h2>Docker Compose<a class="headerlink" href="#docker-compose" title="Permalink to this heading"></a></h2>
+<p>With the help of Docker Compose, we define a group of containers to start up together with their runtime characteristics in a YAML file.
+Each of these containers is referred to as a “service” by Docker Compose.
+Which defines a “service” as a container that interacts with other containers(discoverable and available over a network) in some way and has particular runtime features.</p>
+<p>Docker compose is packaged together with Docker Desktop.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\w</span>indows_user&gt;<span class="w"> </span>docker-compose<span class="w"> </span>--version
+Docker<span class="w"> </span>Compose<span class="w"> </span>version<span class="w"> </span>v2.15.1
+</pre></div>
+</div>
+<p>Here’s an example of a simple Flask application that writes a string to a Redis database:</p>
+<p>Run in WSL:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a new virtual environment</span>
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+
+<span class="c1"># activate that virtual environment</span>
+.<span class="w"> </span>venv/bin/activate
+
+<span class="c1"># install dependencies</span>
+pip<span class="w"> </span>install<span class="w"> </span>flask
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+<span class="kn">import</span> <span class="nn">redis</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="c1"># Connect to the Redis database</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">redis</span><span class="o">.</span><span class="n">Redis</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">6379</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/write/&lt;string:message&gt;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">write_to_redis</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+    <span class="c1"># Write the message to the Redis database</span>
+    <span class="n">r</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s2">&quot;Message written to Redis: &quot;</span> <span class="o">+</span> <span class="n">message</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In this example, the application creates a route <code class="docutils literal notranslate"><span class="pre">/write/&lt;string:message&gt;</span></code> that takes a message as a parameter. When this route is accessed, the function <code class="docutils literal notranslate"><span class="pre">write_to_redis</span></code> is called and it writes the message to the Redis database using the set method, it also returns a string indicating that the message has been written to the Redis database.</p>
+<p>The redis module is used to connect to the Redis database. In this example, it is assumed that the Redis database is running on the <code class="docutils literal notranslate"><span class="pre">localhost</span></code> at the default port <code class="docutils literal notranslate"><span class="pre">6379</span></code>.</p>
+<p>You can run this application by running the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">FLASK_APP</span><span class="o">=</span>app.py
+flask<span class="w"> </span>run
+</pre></div>
+</div>
+<p>You can test the application by accessing the route in your browser, for example, if you run the application on your localhost, you can test it by going to <a class="reference external" href="http://localhost:5000/write/hello">http://localhost:5000/write/hello</a></p>
+<p>Here are some common methods for writing data to a Redis database, along with example code:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">set(name,</span> <span class="pre">value)</span></code>: This method sets the value of a key in the Redis database.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">redis</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">redis</span><span class="o">.</span><span class="n">Redis</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">6379</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;John Doe&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p><code class="docutils literal notranslate"><span class="pre">hset(name,</span> <span class="pre">key,</span> <span class="pre">value)</span></code>: This method sets the value of a field in a hash stored at key.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">r</span><span class="o">.</span><span class="n">hset</span><span class="p">(</span><span class="s1">&#39;person&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;John Doe&#39;</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">hset</span><span class="p">(</span><span class="s1">&#39;person&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;30&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p><code class="docutils literal notranslate"><span class="pre">rpush(name,</span> <span class="pre">*values)</span></code>: This method appends one or multiple values to a list stored at key.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">r</span><span class="o">.</span><span class="n">rpush</span><span class="p">(</span><span class="s1">&#39;colors&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">rpush</span><span class="p">(</span><span class="s1">&#39;colors&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">rpush</span><span class="p">(</span><span class="s1">&#39;colors&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p><code class="docutils literal notranslate"><span class="pre">sadd(name,</span> <span class="pre">*values)</span></code>: This method adds one or multiple members to a set stored at key.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">r</span><span class="o">.</span><span class="n">sadd</span><span class="p">(</span><span class="s1">&#39;fruits&#39;</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">sadd</span><span class="p">(</span><span class="s1">&#39;fruits&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">sadd</span><span class="p">(</span><span class="s1">&#39;fruits&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="run-in-wsl">
+<h3>RUN IN WSL<a class="headerlink" href="#run-in-wsl" title="Permalink to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># switch to the sandbox directory</span>
+<span class="nb">cd</span><span class="w"> </span>~/sandbox/
+<span class="c1"># clone project from git using git clone in wsl or if you have it already git pull</span>
+git<span class="w"> </span>clone<span class="w"> </span>git@github.com:SKILLAB-DevOps/containers.git
+<span class="c1"># or</span>
+<span class="nb">cd</span><span class="w"> </span>containers<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>pull
+<span class="c1"># change the directory to the example</span>
+<span class="nb">cd</span><span class="w"> </span>docker_examples/compose_flask
+
+<span class="c1"># open explorer to retrieve the wsl location</span>
+explorer.exe<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
+<section id="run-in-powershell">
+<h3>RUN IN POWERSHELL<a class="headerlink" href="#run-in-powershell" title="Permalink to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>WSL_LOCATION
+
+<span class="c1"># build the Dockerfile to get an image to be reused</span>
+docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>flask_redis<span class="w"> </span>.
+
+<span class="c1"># we can check the new image created using</span>
+docker<span class="w"> </span>images
+
+<span class="c1"># start the docker-compose</span>
+docker-compose<span class="w"> </span>up
+
+<span class="c1"># or</span>
+docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+</pre></div>
+</div>
+<p>Open another instance of Powershell:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># check the services</span>
+docker-compose<span class="w"> </span>ls
+
+<span class="c1"># check the logs</span>
+docker-compose<span class="w"> </span>logs
+</pre></div>
+</div>
+</section>
+</section>
+<section id="docker-swarm">
+<h2>Docker Swarm<a class="headerlink" href="#docker-swarm" title="Permalink to this heading"></a></h2>
+<a class="reference internal image-reference" href="../_images/docker_swarm.drawio.png"><img alt="How docker swarm works" src="../_images/docker_swarm.drawio.png" style="width: 1000px;" /></a>
+<section id="activating-docker-swarm">
+<h3>Activating Docker Swarm<a class="headerlink" href="#activating-docker-swarm" title="Permalink to this heading"></a></h3>
+<p>Make sure that Swarm is enabled on your Docker Desktop by typing in Powershell <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">system</span> <span class="pre">info</span></code>, and looking for a message <code class="docutils literal notranslate"><span class="pre">Swarm:</span> <span class="pre">active</span></code>.
+If Swarm isn’t on, run <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">swarm</span> <span class="pre">init</span></code> in the Powershell to set it up.
+To join a Docker Swarm cluster you run <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">swarm</span> <span class="pre">join</span></code>.</p>
+</section>
+<section id="id1">
+<h3>RUN IN POWERSHELL<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enable</span>
+docker<span class="w"> </span>swarm<span class="w"> </span>init
+
+<span class="c1"># Disable</span>
+docker<span class="w"> </span>swarm<span class="w"> </span>leave
+
+<span class="c1"># Error response from daemon: You are attempting to leave the swarm on a node that is participating as a manager. Removing the last manager erases all current state of the swarm. Use `--force` to ignore this message.</span>
+docker<span class="w"> </span>swarm<span class="w"> </span>leave<span class="w"> </span>--force
+
+<span class="c1"># deploy a new service</span>
+docker<span class="w"> </span>stack<span class="w"> </span>deploy<span class="w"> </span>flaskapp<span class="w"> </span>-c<span class="w"> </span>docker-compose.yml
+
+<span class="c1"># check the stack</span>
+docker<span class="w"> </span>stack<span class="w"> </span>ls
+
+<span class="c1"># check the services</span>
+docker<span class="w"> </span>service<span class="w"> </span>ls
+
+<span class="c1"># check the logs of the</span>
+docker<span class="w"> </span>service<span class="w"> </span>logs<span class="w"> </span>flaskapp_web
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="management.html" class="btn btn-neutral float-left" title="5. Container management" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="TODO.html" class="btn btn-neutral float-right" title="7. TODO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, skillab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

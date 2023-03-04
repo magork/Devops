@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>0. Introduction</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="introduction">
+<h1>0. Introduction</h1>
+<section id="abstract">
+<h2>Abstract</h2>
+<img alt="../_images/scripting.png" src="../_images/scripting.png" />
+<ol class="arabic simple">
+<li><p><strong>Shell</strong> - is a macro processor which allows for interactive or non-interactive command execution.</p></li>
+<li><p><strong>Scripting</strong> - allows for an automatic command execution that would otherwise be executed interactively one by one.</p></li>
+<li><p><strong>Terminals</strong> - also known as command lines, CLI or consoles, allow us to accomplish and automate tasks on a computer without the use of a graphical user interface. Using a terminal allows us to send simple text commands to our computer to do things like navigate through a directory or copy a file, and form the basis for many more complex automation and programming skills.</p></li>
+</ol>
+<p>Types of shells:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sh</span></code> - Bourne Shell: The Bourne shell is a shell command-line interpreter for computer operating systems.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Bash</span></code> - is a command language interpreter. It is widely available on various operating systems and is a default command interpreter on most GNU/Linux systems. The name is an acronym for the ‘Bourne-Again SHell’.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ZSH</span></code>, also called the Z shell, is an extended version of the Bourne Shell (sh), with plenty of new features, and support for plugins and themes. Since it’s based on the same shell as Bash, ZSH has many of the same features, and switching over is a breeze.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dash</span></code> - Dash stands for Debian Almquist Shell. It is a POSIX-compliant implementation of Bourne Shell. It replaces the /bin/sh in default scripts and provides better execution speed while consuming fewer resources.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rbash</span></code> - The Restricted Shell is a Linux Shell that restricts some of the features of the bash shell, and is very clear from the name. The restriction is well implemented for the command as well as the script running in a restricted shell. It provides an additional layer of security to bash shell in Linux.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tmux</span></code> - tmux is an open-source terminal multiplexer for Unix-like operating systems. It allows multiple terminal sessions to be accessed simultaneously in a single window. It is useful for running more than one command-line program at the same time.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">screen</span></code> - With the Linux screen command, you can push running terminal applications to the background and pull them forward when you want to see them. It also supports split-screen displays and works over SSH connections, even after you disconnect and reconnect!</p></li>
+</ul>
+<p>How to find what shells are available on the Linux machine:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linux_user@linux_machine:~/sandbox$<span class="w"> </span>cat<span class="w"> </span>/etc/shells
+/etc/shells:<span class="w"> </span>valid<span class="w"> </span>login<span class="w"> </span>shells
+/bin/sh
+/bin/bash
+/usr/bin/bash
+/bin/rbash
+/usr/bin/rbash
+/bin/dash
+/usr/bin/dash
+/usr/bin/tmux
+/usr/bin/screen
+</pre></div>
+</div>
+<p>Find out what shell is currently running <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">$SHELL</span></code></p>
+</section>
+<section id="what-is-scripting">
+<h2>What is scripting?</h2>
+<p>All scripting languages are programming languages. The scripting language is a language where instructions are written for a runtime environment. They do not require the compilation step and are rather interpreted. It brings new functions to applications and glues complex systems together. A scripting language is a programming language designed for integrating and communicating with other programming languages.</p>
+<p>There are many scripting languages some of which are discussed below:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>bash</strong>: It is a scripting language to work in the Linux interface. It is a lot easier to use bash to create scripts than other programming languages. It describes the tools to use and code in the command line and create useful reusable scripts and conserve documentation for other people to work with.</p></li>
+<li><p><strong>Python</strong>: It is easy, free, and open source. It supports procedure-oriented programming and object-oriented programming. Python is an interpreted language with dynamic semantics and huge lines of code that are scripted and is currently the most hyped language among developers.</p></li>
+<li><p><strong>JavaScript</strong>: originally a very small, highly domain-specific language, limited to running within a web browser to dynamically modify the web page being shown, that later developed into a widely portable general-purpose programming language.</p></li>
+<li><p><strong>Ruby</strong>: Ruby’s flexibility has allowed developers to create innovative software. It is a scripting language that is great for web development.</p></li>
+<li><p><strong>Perl</strong>: a text-processing language that later developed into a general-purpose language and is also used as an extension language for various applications.</p></li>
+</ul>
+</div></blockquote>
+<p>The most important factor when picking a language is how familiar are the developers that will maintain the code.</p>
+</section>
+<section id="when-to-use-scripting">
+<h2>When to use scripting?</h2>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>only</strong> for small utilities or wrappers (a wrapper is a small script that calls other applications)</p></li>
+<li><p>if you need performance - never use <code class="docutils literal notranslate"><span class="pre">bash</span></code> or <code class="docutils literal notranslate"><span class="pre">python</span></code> look into <code class="docutils literal notranslate"><span class="pre">go</span></code> or <code class="docutils literal notranslate"><span class="pre">rust</span></code></p></li>
+<li><p>if your script goes for more than 100 lines, and the complexity starts to be problematic, look into migrating that into another language.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="requirements-for-executing-the-scripts">
+<h2>Requirements for executing the scripts</h2>
+<ul class="simple">
+<li><p>Run a new fedora container</p></li>
+<li><p>Create a new privileged user</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a fedora docker container</span>
+docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>fedora<span class="w"> </span>bash
+
+<span class="c1"># install utilities (for normal virtual machines we don&#39;t need to install them)</span>
+dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>util-linux<span class="w"> </span>tree<span class="w"> </span>passwd<span class="w"> </span>vim
+
+<span class="c1"># Create a new user and add it to the wheel group to have sudo permissions</span>
+
+useradd<span class="w"> </span>&lt;NAME&gt;<span class="w"> </span>-G<span class="w"> </span>wheel
+
+<span class="c1"># setup a password for the user</span>
+
+passwd<span class="w"> </span>&lt;NAME&gt;
+
+<span class="c1"># Remove the password request for the sudo commands</span>
+vim<span class="w"> </span>/etc/sudoers
+
+<span class="c1"># comment</span>
+<span class="c1"># Allows people in group wheel to run all commands</span>
+%wheel<span class="w"> </span><span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span><span class="w">       </span>ALL
+
+<span class="c1"># And uncomment</span>
+<span class="c1"># Same thing without a password</span>
+%wheel<span class="w">  </span><span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span><span class="w">       </span>NOPASSWD:<span class="w"> </span>ALL
+
+<span class="c1"># switch to the newly created user</span>
+
+su<span class="w"> </span>&lt;NAME&gt;
+
+<span class="c1"># change the directory to users home</span>
+<span class="nb">cd</span>
+
+<span class="c1"># create a new sandbox</span>
+mkdir<span class="w"> </span>sandbox
+
+<span class="c1">#change the directory to the new directory</span>
+<span class="nb">cd</span><span class="w"> </span>sandbox
+
+<span class="c1"># or run everything in one single command</span>
+mkdir<span class="w"> </span>~/sandbox<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/sandbox
+</pre></div>
+</div>
+</section>
+<section id="create-a-sandbox-location-to-facilitate-script-execution">
+<h2>Create a sandbox location to facilitate script execution.</h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Update bash profile file with the location of the scripts so we can call them directly from everywhere</span>
+<span class="c1"># Open file using vim</span>
+
+<span class="c1"># .bashrc and .bash_profile are 2 files that host all our custom settings for the bash shell</span>
+vim<span class="w"> </span>~/.bashrc
+
+<span class="c1"># add at the end of the file the line and save</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$PATH</span><span class="s2">:/home/</span><span class="si">${</span><span class="nv">USER</span><span class="si">}</span><span class="s2">/sandbox&quot;</span>
+
+<span class="c1"># sourcing means that you run a file to get some variables out of it</span>
+<span class="nb">source</span><span class="w"> </span>~/.bashrc
+</pre></div>
+</div>
+</section>
+<section id="making-your-first-script">
+<h2>1. Making your first script</h2>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Create a script</p></li>
+<li><p>Make the script executable</p></li>
+<li><p>Edit content (we are using filenames that are easy to find on the keyboard.)</p></li>
+</ol>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create script</span>
+touch<span class="w"> </span>qqqHelloWorld1
+
+<span class="c1"># add executable permission</span>
+chmod<span class="w"> </span>u+x<span class="w"> </span>qqqHelloWorld1
+
+<span class="c1"># Edit content</span>
+vim<span class="w"> </span>qqqHelloWorld1
+</pre></div>
+</div>
+<section id="add-inside-the-file-and-then-save">
+<h3>Add inside the file and then save</h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># !/usr/bin/env bash</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hell on World&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="run-the-script-using-the-command">
+<h3>Run the script using the command</h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bash<span class="w"> </span>qqqHelloWorld1
+<span class="c1"># or</span>
+./qqqHelloWorld1
+
+<span class="c1"># or if the script location is in PATH</span>
+qqqHelloWorld1
+</pre></div>
+</div>
+</section>
+</section>
+<section id="input-and-output">
+<h2>INPUT and OUTPUT</h2>
+<section id="read">
+<h3>read</h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch<span class="w"> </span>aaaInput1<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>chmod<span class="w"> </span>u+x<span class="w"> </span>aaaInput1<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>vim<span class="w"> </span>aaaInput1
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># !/usr/bin/env bash</span>
+<span class="nb">read</span><span class="w"> </span>name
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello, </span><span class="nv">$name</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>Run using</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch<span class="w"> </span>aaaInput2<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>chmod<span class="w"> </span>u+x<span class="w"> </span>aaaInput2<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>vim<span class="w"> </span>aaaInput2
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># !/usr/bin/env bash</span>
+
+<span class="nb">read</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;Enter your name: &quot;</span><span class="w"> </span>name
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello, </span><span class="nv">$name</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch<span class="w"> </span>aaaInput3<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>chmod<span class="w"> </span>u+x<span class="w"> </span>aaaInput3<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>vim<span class="w"> </span>aaaInput3
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># !/usr/bin/env bash</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello, </span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch<span class="w"> </span>aaaInput4<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>chmod<span class="w"> </span>u+x<span class="w"> </span>aaaInput4<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>vim<span class="w"> </span>aaaInput4
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># !/usr/bin/env bash</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Total arguments: </span><span class="nv">$#</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Script Name = </span><span class="nv">$0</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;First Argument = </span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Second Argument = </span><span class="nv">$2</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="data-structures">
+<h2>DATA STRUCTURES</h2>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;variable_name&gt;=&lt;value&gt;</span></code></p>
+<p>Notice that there are no spaces before and after the equal (=) operator; otherwise, you’ll get an error. Why? Because the shell will interpret the <code class="docutils literal notranslate"><span class="pre">variable_name</span></code> as a command, not a variable.</p>
+<ul class="simple">
+<li><p>Variable <code class="docutils literal notranslate"><span class="pre">PATH_TO_FILES='/some/path'</span></code></p></li>
+<li><p>Constants <code class="docutils literal notranslate"><span class="pre">readonly</span> <span class="pre">PATH_TO_FILES='/some/path'</span></code></p></li>
+<li><p>Lists/Arrays</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># !/usr/bin/env bash</span>
+<span class="nb">declare</span><span class="w"> </span>-a<span class="w"> </span>projects
+
+<span class="c1"># Instantiate the array with values</span>
+<span class="nv">projects</span><span class="o">=(</span><span class="s2">&quot;introduction&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">          </span><span class="s2">&quot;environments&quot;</span><span class="w"> </span><span class="se">\\</span>
+<span class="w">          </span><span class="s2">&quot;linux&quot;</span><span class="w"> </span><span class="se">\\</span>
+<span class="w">          </span><span class="s2">&quot;scripts&quot;</span><span class="w"> </span><span class="o">)</span>
+</pre></div>
+</div>
+</section>
+<section id="if-conditions">
+<h2>IF CONDITIONS</h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>condition<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="k">elif</span>
+<span class="w">    </span><span class="o">[</span>COMMANDS<span class="o">]</span>
+<span class="k">else</span>
+<span class="w">    </span><span class="o">[</span>COMMANDS<span class="o">]</span>
+<span class="k">fi</span>
+</pre></div>
+</div>
+<p>Example</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch<span class="w"> </span>sssCondition<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>chmod<span class="w"> </span>u+x<span class="w"> </span>sssCondition<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>vim<span class="w"> </span>sssCondition
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># !/usr/bin/env bash</span>
+
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="w"> </span>-ge<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Number is greater than 10&quot;</span>
+<span class="k">else</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Number is lower than 10&quot;</span>
+<span class="k">fi</span>
+</pre></div>
+</div>
+</section>
+<section id="loops">
+<h2>LOOPS</h2>
+<section id="for-loop">
+<h3>FOR LOOP</h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># !/usr/bin/env bash</span>
+
+<span class="k">for</span><span class="w"> </span>item<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">[</span>LIST<span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="o">[</span>COMMANDS<span class="o">]</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch<span class="w"> </span>dddFor1<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>chmod<span class="w"> </span>u+x<span class="w"> </span>dddFor1<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>vim<span class="w"> </span>dddFor1
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># !/usr/bin/env bash</span>
+
+<span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..10<span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Print </span><span class="si">${</span><span class="nv">i</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch<span class="w"> </span>dddFor2<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>chmod<span class="w"> </span>u+x<span class="w"> </span>dddFor2<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>vim<span class="w"> </span>dddFor2
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># !/usr/bin/env bash</span>
+
+<span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span>/var/*<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$i</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</section>
+<section id="while-loop">
+<h3>WHILE LOOP</h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># !/usr/bin/env bash</span>
+
+<span class="k">while</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>condition<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="o">[</span>COMMANDS<span class="o">]</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+<p>Example</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch<span class="w"> </span>zzzWhile<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>chmod<span class="w"> </span>u+x<span class="w"> </span>zzzWhile<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>vim<span class="w"> </span>zzzWhile
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># !/usr/bin/env bash</span>
+
+<span class="nv">num</span><span class="o">=</span><span class="m">1</span>
+<span class="k">while</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$num</span><span class="w"> </span>-le<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="k">$((</span><span class="nv">$num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">7</span><span class="k">))</span>
+<span class="w">    </span><span class="nv">num</span><span class="o">=</span><span class="k">$((</span><span class="nv">$num</span><span class="o">+</span><span class="m">1</span><span class="k">))</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</section>
+<section id="until-loop">
+<h3>UNTIL LOOP</h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">until</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>condition<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="o">[</span>COMMANDS<span class="o">]</span>
+Done
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch<span class="w"> </span>xxxUntil<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>chmod<span class="w"> </span>u+x<span class="w"> </span>xxxUntil<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>vim<span class="w"> </span>xxxUntil
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># !/usr/bin/env bash</span>
+
+<span class="nv">num</span><span class="o">=</span><span class="m">1</span>
+<span class="k">until</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$num</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="k">$((</span><span class="nv">$num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">7</span><span class="k">))</span>
+<span class="w">    </span><span class="nv">num</span><span class="o">=</span><span class="k">$((</span><span class="nv">$num</span><span class="o">+</span><span class="m">1</span><span class="k">))</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Don’t forget about -le vs -lt and -ge vs gt</p>
+</div>
+</section>
+</section>
+<section id="create-a-loading-spinner">
+<h2>2. Create a loading spinner</h2>
+<ul class="simple">
+<li><p>find out how to use arrays</p></li>
+<li><p>learn to create scripts that run continuously</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch<span class="w"> </span>cccSpinner<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>chmod<span class="w"> </span>u+x<span class="w"> </span>cccSpinner<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>vim<span class="w"> </span>cccSpinner
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># !/usr/bin/env bash</span>
+
+<span class="c1"># declare array</span>
+<span class="nv">array</span><span class="o">=(</span><span class="s1">&#39;-&#39;</span><span class="w"> </span><span class="s1">&#39;\&#39;</span><span class="w"> </span><span class="s1">&#39;|&#39;</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="o">)</span>
+
+<span class="c1"># loop until stopped</span>
+<span class="k">while</span><span class="w"> </span>true<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="c1"># for every element in the array</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span>c<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">array</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+
+<span class="w">    </span><span class="c1"># man echo</span>
+<span class="w">    </span><span class="c1"># \-n     do not output the trailing newline</span>
+<span class="w">    </span><span class="c1"># \-e     enable interpretation of backslash escapes</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="se">\-</span>en<span class="w"> </span><span class="s2">&quot;\\r </span><span class="nv">$c</span><span class="s2"> &quot;</span>
+
+<span class="w">    </span><span class="c1"># wait for half a second</span>
+<span class="w">    </span>sleep<span class="w"> </span>.5
+
+<span class="w">    </span><span class="c1"># close for</span>
+<span class="w">    </span><span class="k">done</span>
+<span class="c1"># close while</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+<p>Run the script <code class="docutils literal notranslate"><span class="pre">cccSpinner</span></code></p>
+</section>
+<section id="creating-a-backup-of-your-home">
+<h2>2. Creating a backup of your home</h2>
+<p>How to create a backup?</p>
+<p>Creating an archive from a directory, adding also the date in the name.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar<span class="w"> </span>--help
+man<span class="w"> </span>tar
+date
+</pre></div>
+</div>
+<p>The script name will be <code class="docutils literal notranslate"><span class="pre">qqqBackUp1</span></code></p>
+<p>Creating, adding permission and opening the file</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch<span class="w"> </span>qqqBackUp1<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>chmod<span class="w"> </span>u+x<span class="w"> </span>qqqBackUp1<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>vim<span class="w"> </span>qqqBackUp1
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># !/usr/bin/env bash</span>
+tar<span class="w"> </span>-czf<span class="w"> </span>/tmp/home*backup<span class="sb">`</span>date<span class="w"> </span>+<span class="s2">&quot;%Y*%m_%d&quot;</span><span class="sb">`</span><span class="w"> </span>~/sandbox
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

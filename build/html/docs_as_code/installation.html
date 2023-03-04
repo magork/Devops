@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. Installation &mdash; DevOps 1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/max_width.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Deploy Documentation" href="deploy_docs.html" />
+    <link rel="prev" title="0. Introduction" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            DevOps
+              <img src="../_static/Logo.jpg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Curriculum</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../curriculum/curriculum.html">Class Curriculum</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Introduction to DevOps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/foreword.html">Foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/devops.html">1. Introduction to DevOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/TODO.html">2. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Environments</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../environments/environments.html">1. Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environments/getting_around.html">2. Getting around</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environments/setup_infra.html">3. Setup developing infrastructure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environments/TODO.html">4. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Linux</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../linux/introduction.html">0. Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/1_managing_users_and_groups.html">1. Managing Users and Groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/2_file_management.html">2. File management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/3_managing_software.html">3. Managing Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/4_service_management.html">4. Service Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/5_process_management.html">5. Process management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/6_system_logging.html">6. System logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/7_linux_file_systems.html">7. Linux File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/8_terminal_tuning.html">8. Terminal tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/TODO.html">9. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Git</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../git/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git/bestpractices.html">1. Best practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git/TODO.html">2. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DocOps</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">0. Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy_docs.html">3. Deploy Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx.html">2. What is sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TODO.html">4. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scripting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../scripting/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting/shell_style_guide.html">1. Shell Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting/examples.html">2. Working with aliases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting/TODO.html">3. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/data_structures.html">2. Variables and Data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/conditions_loops.html">3. Loops and conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/libraries.html">4. Libraries and modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/functions.html">5. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/classes.html">6. Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/documentation.html">7. Documenting your code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/yourfirstcli.html">8. Your first CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/rules.html">9. Python Language Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/TODO.html">10. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Containers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../containers/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/installation.html">1. Windows installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/helloworld.html">2. Running “Hello World”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/workingwithdocker.html">3. Working with Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/usingdockerfile.html">4. Using Dockerfile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/management.html">5. Container management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/orchestration.html">6. Container orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/TODO.html">7. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Kubernetes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/gettingstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/deployments.html">2. Creating a Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/argocd.html">3. ArgoCD</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pipelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pipelines/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipelines/jenkins.html">2. Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipelines/github.html">3. GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipelines/python_cli.html">2. Python CLI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Ansible</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ansible/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansible/installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansible/architecture.html">2. Ansible architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansible/gettingstarted.html">3. Getting Started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../project/introduction.html">0. Introduction</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DevOps</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">1. Installation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/docs_as_code/installation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation">
+<h1>1. Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h1>
+<section id="installation-on-linux">
+<h2>Installation on Linux<a class="headerlink" href="#installation-on-linux" title="Permalink to this heading"></a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Python is also used by the Linux kernel, take care of how you update the default one</p>
+</div>
+<p>Setup python virtual environment</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate
+</pre></div>
+</div>
+<p>To install a python package we will use</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>sphinx
+</pre></div>
+</div>
+<p>But for this case we will run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+<section id="getting-started">
+<h3>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h3>
+<p>To create a quickstart documentation we will run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-quickstart
+</pre></div>
+</div>
+</section>
+<section id="install-read-the-docs-theme">
+<h3>Install Read-the-docs theme<a class="headerlink" href="#install-read-the-docs-theme" title="Permalink to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>sphinx-rtd-theme
+</pre></div>
+</div>
+<p>Added code in your <code class="docutils literal notranslate"><span class="pre">`conf.py`</span></code> file</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>import<span class="w"> </span>sphinx_rtd_theme
+
+<span class="nv">extensions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span>
+<span class="w">      </span><span class="s1">&#39;sphinx_rtd_theme&#39;</span>,
+<span class="o">]</span>
+
+<span class="nv">html_theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;sphinx_rtd_theme&quot;</span>
+</pre></div>
+</div>
+<p>Build documentation</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you don’t have to make installed, you can install it.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>make
+</pre></div>
+</div>
+<p>Then run (you should run this command from the root of the project)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>html
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Complete documentation</strong>: <a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html">https://www.sphinx-doc.org/en/master/index.html</a></p>
+</div>
+</section>
+</section>
+<section id="what-are-all-these-files">
+<h2>What are all these files<a class="headerlink" href="#what-are-all-these-files" title="Permalink to this heading"></a></h2>
+<section id="file-structure">
+<h3>File structure<a class="headerlink" href="#file-structure" title="Permalink to this heading"></a></h3>
+<p>Your file system should now look similar to this</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docs-as-code
+├──<span class="w"> </span>build
+└──<span class="w"> </span><span class="nb">source</span>
+├──<span class="w"> </span>index.rst
+<span class="w">    </span>├──<span class="w"> </span>conf.py
+<span class="w">    </span>├──<span class="w"> </span>_build
+<span class="w">    </span>├──<span class="w"> </span>_static
+<span class="w">    </span>├──<span class="w"> </span>_templates
+├──<span class="w"> </span>venv
+├──<span class="w"> </span>.gitignore
+├──<span class="w"> </span>Makefile
+├──<span class="w"> </span>make.bat
+└──<span class="w"> </span>requirments.txt
+</pre></div>
+</div>
+<p>We have a top-level docs directory in the main project directory. Inside this is:</p>
+<p><code class="docutils literal notranslate"><span class="pre">index.rst</span></code>:</p>
+<blockquote>
+<div><p>This is the index file for the documentation, or what lives at /. It normally contains a Table of Contents that will link to all other pages of the documentation.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">conf.py</span></code>:</p>
+<blockquote>
+<div><p>Allows for customization of Sphinx. You would not need to use this too much yet, but it is good to be familiar with this file.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">Makefile</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">make.bat</span></code>:</p>
+<blockquote>
+<div><p>This is the main interface for local development, and should not be changed.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">_build</span></code>:</p>
+<blockquote>
+<div><p>The directory that your output files go into.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">_static</span></code>:</p>
+<blockquote>
+<div><p>The directory includes all your static files, like images.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">_templates</span></code>:</p>
+<blockquote>
+<div><p>Allows you to override Sphinx templates to customize the look and feel.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">venv</span></code>:</p>
+<blockquote>
+<div><p>The python virtual environment where we will install all dependencies.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></p>
+<blockquote>
+<div><p>The python requirements needed to install sphinx.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">.gitignore</span></code></p>
+<blockquote>
+<div><p>A special file is interpreted by git and will ignore adding files or directories.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code></p>
+<blockquote>
+<div><p>A special file interpreted by GitHub will allow us to push our site.</p>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="introduction.html" class="btn btn-neutral float-left" title="0. Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="deploy_docs.html" class="btn btn-neutral float-right" title="3. Deploy Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, skillab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>3. Setup developing infrastructure</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="setup-developing-infrastructure">
+<h1>3. Setup developing infrastructure</h1>
+<section id="prerequisites">
+<h2>Prerequisites</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You must be running Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11.</p>
+</div>
+<section id="install-wsl">
+<h3>## Install WSL</h3>
+<p>Run the command in an administrator PowerShell or Windows Command Prompt and then restart your machine.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wsl<span class="w"> </span>--install
+
+<span class="c1"># Some of Windows distributions have obsolete packages, you need to specify the distribution name</span>
+wsl<span class="w"> </span>--install<span class="w"> </span>-d<span class="w"> </span>Ubuntu
+
+<span class="c1"># By default, it will install Ubuntu, to install a different distribution</span>
+<span class="c1"># To see a list of available Linux distributions available for download through the online store, enter:</span>
+
+wsl<span class="w"> </span>--list<span class="w"> </span>--online
+<span class="c1"># or</span>
+
+wsl<span class="w"> </span>-l<span class="w"> </span>-o.
+
+<span class="c1"># To install additional Linux distributions after the initial install, you may also use the command:</span>
+wsl<span class="w"> </span>--install<span class="w"> </span>-d<span class="w"> </span>&lt;Distribution<span class="w"> </span>Name&gt;.
+</pre></div>
+</div>
+</section>
+</section>
+<section id="install-docker-desktop">
+<h2>Install Docker Desktop</h2>
+<p>Open <a class="reference external" href="https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe">https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe</a> then run the installer.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a fedora docker container</span>
+docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>fedora<span class="w"> </span>bash
+
+<span class="c1"># install utilities on the container (for normal virtual machines we don&#39;t need to install them)</span>
+dnf<span class="w"> </span>install<span class="w"> </span>util-linux<span class="w"> </span>tree<span class="w"> </span>passwd
+</pre></div>
+</div>
+<p>To find what distribution and version of Linux are you running</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>/etc/os-release
+</pre></div>
+</div>
+</section>
+<section id="install-vs-code">
+<h2>Install VS Code</h2>
+<p>Install VS Code <a class="reference external" href="https://code.visualstudio.com/Download">https://code.visualstudio.com/Download</a> To be able to run code directly on the WSL we need the WSL Extension</p>
+<p>The Linux command line is a text interface to your computer. Often referred to as the shell, terminal, console, prompt or various other names,</p>
+</section>
+<section id="setup-wsl-ubuntu-22-04">
+<h2>Setup WSL - Ubuntu 22.04</h2>
+<p>I decided to upgrade my wsl to the latest version Ubuntu 22.04</p>
+<p>These are the steps that I took:</p>
+<ol class="arabic simple">
+<li><p>Backup my information (I pushed all the code to git)</p></li>
+<li><p>Stop and remove the wsl</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wsl<span class="w"> </span>--shutdown
+
+wsl<span class="w"> </span>--unregister<span class="w"> </span>Ubuntu
+
+wsl<span class="w"> </span>--install<span class="w"> </span>-d<span class="w"> </span>Ubuntu
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Access the WSL - setup a new user and password</p></li>
+<li><p>Update all the packages</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+
+sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+</pre></div>
+</div>
+<p>Install packages</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>vim<span class="w"> </span>python3.11-venv<span class="w"> </span>make<span class="w"> </span>-y
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Disabled password request for my user when running sudo</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>su
+</pre></div>
+</div>
+<p>Update the <code class="docutils literal notranslate"><span class="pre">/etc/sudoers</span></code> file using <code class="docutils literal notranslate"><span class="pre">vim</span> <span class="pre">/etc/sudoers</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%sudo<span class="w">   </span><span class="nv">ALL</span><span class="o">=(</span>ALL:ALL<span class="o">)</span><span class="w"> </span>ALL
+</pre></div>
+</div>
+<p>to</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%sudo<span class="w">   </span><span class="nv">ALL</span><span class="o">=(</span>ALL:ALL<span class="o">)</span><span class="w"> </span>NOPASSWD:ALL
+</pre></div>
+</div>
+<p>Save, you need to use <code class="docutils literal notranslate"><span class="pre">wq!</span></code> don’t forget the <code class="docutils literal notranslate"><span class="pre">!</span></code>.</p>
+<ol class="arabic simple" start="6">
+<li><p>Update the <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> with aliases for root and your user</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span><span class="w"> </span><span class="nv">ll</span><span class="o">=</span><span class="s1">&#39;ls -ltrha --color=auto&#39;</span><span class="w"> </span><span class="c1"># add arguments to a command that exists</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">ls</span><span class="o">=</span><span class="s1">&#39;ls -ltrha --color=auto&#39;</span><span class="w"> </span><span class="c1"># add arguments to a command that exists</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">vi</span><span class="o">=</span><span class="s1">&#39;vim&#39;</span><span class="w"> </span><span class="c1"># redirect the old application to the new one</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">exot</span><span class="o">=</span><span class="s1">&#39;exit&#39;</span><span class="w"> </span><span class="c1"># correct typing errors</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">clera</span><span class="o">=</span><span class="s1">&#39;clear&#39;</span><span class="w"> </span><span class="c1"># correct typing errors</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">qpositive</span><span class="o">=</span><span class="s1">&#39;history -c &amp;&amp; history -w &amp;&amp; exit&#39;</span><span class="w"> </span><span class="c1"># link more commands under one</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">bing</span><span class="o">=</span><span class="s1">&#39;git push&#39;</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">bang</span><span class="o">=</span><span class="s1">&#39;git status &amp;&amp; git add --all &amp;&amp; git commit -m&#39;</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">qqqRunEnv</span><span class="o">=</span><span class="s1">&#39;. venv/bin/activate&#39;</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">eeeCreateVEnv</span><span class="o">=</span><span class="s1">&#39;python3 -m venv venv&#39;</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">duck</span><span class="o">=</span><span class="s1">&#39;cd /home/${USER}/sandbox&#39;</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">shit</span><span class="o">=</span><span class="s1">&#39;sudo $(history -p \!\!)&#39;</span>
+
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$PATH</span><span class="s2">:/home/</span><span class="si">${</span><span class="nv">USER</span><span class="si">}</span><span class="s2">/sandbox&quot;</span>
+</pre></div>
+</div>
+<p>after the update of the aliases you need to source them to have them available run <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">~/.bashrc</span></code></p>
+<ol class="arabic simple" start="7">
+<li><p>Create your sandbox</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>/home/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/sandbox
+duck
+</pre></div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>Create an ssh-key for the machine</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">USER</span><span class="si">}</span><span class="s2">@</span><span class="k">$(</span>hostname<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>read the newly created key</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>~/.ssh/id_ed25519.pub
+</pre></div>
+</div>
+<p>and add it in the GitHub <a class="reference external" href="https://github.com/settings/keys">https://github.com/settings/keys</a></p>
+<ol class="arabic simple" start="9">
+<li><p>Configure git</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;&lt;MAIL&gt;&quot;</span>
+
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;&lt;USER&gt;&quot;</span>
+
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span>vim
+</pre></div>
+</div>
+<ol class="arabic simple" start="10">
+<li><p>Clone all your projects</p></li>
+</ol>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

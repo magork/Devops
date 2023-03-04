@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>7. Documenting your code</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="documenting-your-code">
+<h1>7. Documenting your code</h1>
+<section id="why-documenting-your-code-is-so-important">
+<h2>Why Documenting Your Code Is So Important</h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>“Code is more often read than written.”</p>
+<p>— Guido van Rossum</p>
+</div>
+<p>Every piece of code you write code has three primary audiences:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>your users</p></li>
+<li><p>your developers</p></li>
+<li><p>you</p></li>
+</ol>
+</div></blockquote>
+<p><strong>Everyone is equally important!</strong></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>“Well, Miss Barrett, when that passage was written only God and Robert Browning understood it. Now, only God understands it.”</p>
+<p>— Robert Browning</p>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>“It doesn’t matter how good your software is, because if the documentation is not good enough, people will not use it.“</p>
+<p>— Daniele Procida</p>
+</div>
+</section>
+<section id="commenting-vs-documenting-your-code">
+<h2>Commenting vs Documenting your code</h2>
+<p><cite>Comments</cite> - to explain a decision in code</p>
+<p><cite>Documentation</cite> - information about how to install, use, update, debug.</p>
+</section>
+<section id="docstrings">
+<h2>Docstrings</h2>
+<p>The use of Python documentation strings, sometimes known as “docstrings,” makes it simple to link documentation to specific Python modules, functions, classes, and methods.</p>
+<p>It is stated in source code that it is used to document a particular section of code, much like a comment.
+The docstring should explain what the function does, not how it accomplishes it, unlike traditional source code comments.</p>
+<p>More about Docstring Conventions in <a class="reference external" href="https://peps.python.org/pep-0257/">https://peps.python.org/pep-0257/</a>.</p>
+<section id="google-docstrings">
+<h3>Google Docstrings</h3>
+<p>More about <a class="reference external" href="https://github.com/google/styleguide/blob/gh-pages/pyguide.md#38-comments-and-docstrings">https://github.com/google/styleguide/blob/gh-pages/pyguide.md#38-comments-and-docstrings</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hello_name</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;skillab&#39;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s1">&#39;admin@skillab.com&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Display a simple greeting with 2 parameters.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        username (str): The username of your user (default is skillab)</span>
+<span class="sd">        email (str): The email of your user (default is admin@skillab.com)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        string: a string with information about user and mail</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Hello World </span><span class="si">{</span><span class="n">username</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> with </span><span class="si">{</span><span class="n">email</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">!&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="restructuredtext-docstrings">
+<h3>reStructuredText Docstrings</h3>
+<p>More about <a class="reference external" href="http://docutils.sourceforge.net/rst.html">http://docutils.sourceforge.net/rst.html</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hello_name</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;skillab&#39;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s1">&#39;admin@skillab.com&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Display a simple greeting with 2 parameters.</span>
+
+<span class="sd">    :param username: The username of your user (default is skillab)</span>
+<span class="sd">    :type username: str</span>
+<span class="sd">    :param email: The email of your user (default is admin@skillab.com)</span>
+<span class="sd">    :type email: str</span>
+<span class="sd">    :returns: a string with information about user and mail</span>
+<span class="sd">    :rtype: string</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Hello World </span><span class="si">{</span><span class="n">username</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> with </span><span class="si">{</span><span class="n">email</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">!&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

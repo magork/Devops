@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>1. Shell Style Guide</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="shell-style-guide">
+<h1>1. Shell Style Guide</h1>
+<section id="file-header">
+<h2>1. File Header</h2>
+<p>Start each file with the environment where it will run (the #! shebang) and a description of its contents.</p>
+<p>Every file must have a top-level comment including a brief overview of its contents and usage. Copyright notice and author information are optional, if there are no regulatory requirements to be avoided, because you need to manage them</p>
+<p>Example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># !/usr/bin/env bash</span>
+<span class="c1"># Automates the git push process.</span>
+<span class="c1"># Usage: ./scriptName</span>
+<span class="c1"># Author: Skillab Team</span>
+<span class="c1"># Copyright: Bla Bla Bla</span>
+</pre></div>
+</div>
+</section>
+<section id="file-extension">
+<h2>2. File extension</h2>
+<p>Although we learn in school that we need one, an executable shouldn’t have an extension. We need to have the shebang.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># !/usr/bin/env python</span>
+<span class="c1"># !/usr/bin/env perl</span>
+<span class="c1"># !/usr/bin/env bash</span>
+</pre></div>
+</div>
+</section>
+<section id="always-capture-the-stdout-and-stderr-into-a-log">
+<h2>3. Always capture the STDOUT and STDERR into a log</h2>
+<p>Example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># !/usr/bin/env bash</span>
+
+err<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[</span><span class="k">$(</span>date<span class="w"> </span>+<span class="s1">&#39;%Y-%m-%dT%H:%M:%S%z&#39;</span><span class="k">)</span><span class="s2">] [ERROR]: </span><span class="nv">$*</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="o">}</span>
+
+<span class="k">if</span><span class="w"> </span>!<span class="w"> </span>do_something<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span>err<span class="w"> </span><span class="s2">&quot;Unable to do_something&quot;</span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="k">fi</span>
+</pre></div>
+</div>
+</section>
+<section id="comments">
+<h2>4. Comments</h2>
+<section id="id1">
+<h3>1. File Header</h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># !/usr/bin/env bash</span>
+
+<span class="c1">######################################</span>
+<span class="c1"># Automates the git push process.</span>
+<span class="c1"># Usage: ./scriptName</span>
+<span class="c1"># Author: Skillab Team</span>
+<span class="c1"># Copyright: Bla Bla Bla</span>
+<span class="c1">######################################</span>
+</pre></div>
+</div>
+</section>
+<section id="function-comments">
+<h3>2. Function Comments</h3>
+<p>All function comments should describe the intended API behavior using:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Description of the function.</p></li>
+<li><p>Globals: List of global variables used and modified.</p></li>
+<li><p>Arguments: Arguments took.</p></li>
+<li><p>Outputs: Output to STDOUT or STDERR.</p></li>
+<li><p>Returns: Returned values other than the default exit status of the last command run.</p></li>
+</ol>
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">######################################</span>
+<span class="c1"># Cleanup files from the backup directory.</span>
+<span class="c1"># Globals:</span>
+<span class="c1">#    BACKUP DIR</span>
+<span class="c1">#    TIME TO KEEP THE BACKUP</span>
+<span class="c1"># Arguments:</span>
+<span class="c1">#    None</span>
+<span class="c1"># Returns:</span>
+<span class="c1">#    None</span>
+<span class="c1">######################################</span>
+
+<span class="k">function</span><span class="w"> </span>cleanup<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+
+<span class="w">  </span>…
+<span class="o">}</span>
+</pre></div>
+</div>
+</section>
+<section id="implementation-comments">
+<h3>3. Implementation Comments</h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># We&#39;re using the library x due a bug in conflict with library y</span>
+</pre></div>
+</div>
+</section>
+<section id="todo-comments">
+<h3>4. TODO Comments</h3>
+<p>Use TODO comments for temporary code, a short-term solution, or good enough but not perfect. Just avoid them, I have lots of TODO from like 7 years ago.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Works but we don&#39;t know why</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

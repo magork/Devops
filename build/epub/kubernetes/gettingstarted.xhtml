@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>1. Getting started</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="getting-started">
+<h1>1. Getting started</h1>
+<section id="using-kubectl">
+<h2>Using kubectl</h2>
+<p>Open Powershell from your Windows machine.</p>
+<p><code class="docutils literal notranslate"><span class="pre">kubectl</span></code> is the main Kubernetes command-line tool. It’s what you’ll use for most Kubernetes management tasks, and we use it extensively in the examples. It’s available for most operating systems and architectures.</p>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">PS C:\Users\xcara&gt;</span> kubectl --help
+<span class="go">kubectl controls the Kubernetes cluster manager.</span>
+
+<span class="go">Find more information at: https://kubernetes.io/docs/reference/kubectl/</span>
+
+<span class="go">Basic Commands (Beginner):</span>
+<span class="go">create          Create a resource from a file or from stdin</span>
+<span class="go">expose          Take a replication controller, service, deployment or pod and expose it as a new Kubernetes service</span>
+<span class="go">run             Run a particular image on the cluster</span>
+<span class="go">set             Set specific features on objects</span>
+
+<span class="go">Basic Commands (Intermediate):</span>
+<span class="go">explain         Get documentation for a resource</span>
+<span class="go">get             Display one or many resources</span>
+<span class="go">edit            Edit a resource on the server</span>
+<span class="go">delete          Delete resources by file names, stdin, resources and names, or by resources and label selector</span>
+
+<span class="go">Deploy Commands:</span>
+<span class="go">rollout         Manage the rollout of a resource</span>
+<span class="go">scale           Set a new size for a deployment, replica set, or replication controller</span>
+<span class="go">autoscale       Auto-scale a deployment, replica set, stateful set, or replication controller</span>
+
+<span class="go">Cluster Management Commands:</span>
+<span class="go">certificate     Modify certificate resources.</span>
+<span class="go">cluster-info    Display cluster information</span>
+<span class="go">top             Display resource (CPU/memory) usage</span>
+<span class="go">cordon          Mark node as unschedulable</span>
+<span class="go">uncordon        Mark node as schedulable</span>
+<span class="go">drain           Drain node in preparation for maintenance</span>
+<span class="go">taint           Update the taints on one or more nodes</span>
+
+<span class="go">Troubleshooting and Debugging Commands:</span>
+<span class="go">describe        Show details of a specific resource or group of resources</span>
+<span class="go">logs            Print the logs for a container in a pod</span>
+<span class="go">attach          Attach to a running container</span>
+<span class="go">exec            Execute a command in a container</span>
+<span class="go">port-forward    Forward one or more local ports to a pod</span>
+<span class="go">proxy           Run a proxy to the Kubernetes API server</span>
+<span class="go">cp              Copy files and directories to and from containers</span>
+<span class="go">auth            Inspect authorization</span>
+<span class="go">debug           Create debugging sessions for troubleshooting workloads and nodes</span>
+
+<span class="go">Advanced Commands:</span>
+<span class="go">diff            Diff the live version against a would-be applied version</span>
+<span class="go">apply           Apply a configuration to a resource by file name or stdin</span>
+<span class="go">patch           Update fields of a resource</span>
+<span class="go">replace         Replace a resource by file name or stdin</span>
+<span class="go">wait            Experimental: Wait for a specific condition on one or many resources</span>
+<span class="go">kustomize       Build a kustomization target from a directory or URL.</span>
+
+<span class="go">Settings Commands:</span>
+<span class="go">label           Update the labels on a resource</span>
+<span class="go">annotate        Update the annotations on a resource</span>
+<span class="go">completion      Output shell completion code for the specified shell (bash, zsh, fish, or powershell)</span>
+
+<span class="go">Other Commands:</span>
+<span class="go">alpha           Commands for features in alpha</span>
+<span class="go">api-resources   Print the supported API resources on the server</span>
+<span class="go">api-versions    Print the supported API versions on the server, in the form of &quot;group/version&quot;</span>
+<span class="go">config          Modify kubeconfig files</span>
+<span class="go">plugin          Provides utilities for interacting with plugins</span>
+<span class="go">version         Print the client and server version information</span>
+
+<span class="go">Usage:</span>
+<span class="go">kubectl [flags] [options]</span>
+
+<span class="gp">Use &quot;kubectl &lt;command&gt;</span> --help<span class="s2">&quot; for more information about a given command.</span>
+<span class="go">Use &quot;kubectl options&quot; for a list of global command-line options (applies to all commands).</span>
+</pre></div>
+</div>
+<p>Verify the cluster with the following command.</p>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">PS C:\Users\windows_user&gt;</span> kubectl get nodes
+<span class="go">NAME             STATUS   ROLES           AGE    VERSION</span>
+<span class="go">docker-desktop   Ready    control-plane   6m2s   v1.25.4</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">kubectl</span></code> configuration file is called config and lives in a hidden directory called <code class="docutils literal notranslate"><span class="pre">kube</span></code> in your home directory <code class="docutils literal notranslate"><span class="pre">$HOME/.kube/config</span></code>. We normally call it the <code class="docutils literal notranslate"><span class="pre">kubeconfig</span></code> file, and it contains definitions for</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Clusters</p></li>
+<li><p>Users (credentials)</p></li>
+<li><p>Contexts</p></li>
+</ol>
+</div></blockquote>
+<p>You can view your <code class="docutils literal notranslate"><span class="pre">kubeconfig</span></code> using the <code class="docutils literal notranslate"><span class="pre">kubectl</span></code> config view command.</p>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">PS C:\Users\windows_user&gt;</span> kubectl config view
+<span class="go">apiVersion: v1</span>
+<span class="go">clusters:</span>
+<span class="go">- cluster:</span>
+<span class="go">    certificate-authority-data: DATA+OMITTED</span>
+<span class="go">    server: https://kubernetes.docker.internal:6443</span>
+<span class="go">name: docker-desktop</span>
+<span class="go">contexts:</span>
+<span class="go">- context:</span>
+<span class="go">    cluster: docker-desktop</span>
+<span class="go">    user: docker-desktop</span>
+<span class="go">name: docker-desktop</span>
+<span class="go">current-context: docker-desktop</span>
+<span class="go">kind: Config</span>
+<span class="go">preferences: {}</span>
+<span class="go">users:</span>
+<span class="go">- name: docker-desktop</span>
+<span class="go">user:</span>
+<span class="go">    client-certificate-data: REDACTED</span>
+<span class="go">    client-key-data: REDACTED</span>
+</pre></div>
+</div>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">kubectl</span></code> config current-context to see your current context. The following example shows a system where <code class="docutils literal notranslate"><span class="pre">kubectl</span></code> is configured to use the cluster and user-defined in a context called docker-desktop.</p>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">PS C:\Users\windows_user&gt;</span> kubectl config current-context
+<span class="go">docker-desktop</span>
+</pre></div>
+</div>
+<p>Run a <code class="docutils literal notranslate"><span class="pre">kubectl</span></code> explain pods command to list all possible Pod attributes.</p>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">PS C:\Users\windows_user&gt;</span> kubectl explain pods --recursive
+<span class="go">KIND:     Pod</span>
+<span class="go">VERSION:  v1</span>
+
+<span class="go">DESCRIPTION:</span>
+<span class="go">    Pod is a collection of containers that can run on a host. This resource is</span>
+<span class="go">    created by clients and scheduled onto hosts.</span>
+
+<span class="go">FIELDS:</span>
+<span class="gp">apiVersion   &lt;string&gt;</span>
+<span class="gp">kind &lt;string&gt;</span>
+<span class="gp">metadata     &lt;Object&gt;</span>
+<span class="gp">    annotations       &lt;map[string]string&gt;</span>
+<span class="gp">    creationTimestamp &lt;string&gt;</span>
+<span class="gp">    deletionGracePeriodSeconds        &lt;integer&gt;</span>
+<span class="gp">    deletionTimestamp &lt;string&gt;</span>
+<span class="gp">    finalizers        &lt;[]string&gt;</span>
+<span class="gp">    generateName      &lt;string&gt;</span>
+<span class="gp">    generation        &lt;integer&gt;</span>
+<span class="gp">    labels    &lt;map[string]string&gt;</span>
+<span class="gp">    managedFields     &lt;[]Object&gt;</span>
+<span class="gp">        apiVersion     &lt;string&gt;</span>
+<span class="gp">        fieldsType     &lt;string&gt;</span>
+<span class="gp">        fieldsV1       &lt;map[string]&gt;</span>
+<span class="gp">        manager        &lt;string&gt;</span>
+<span class="gp">        operation      &lt;string&gt;</span>
+<span class="gp">        subresource    &lt;string&gt;</span>
+<span class="gp">        time   &lt;string&gt;</span>
+<span class="gp">    name      &lt;string&gt;</span>
+<span class="gp">    namespace &lt;string&gt;</span>
+<span class="gp">    ownerReferences   &lt;[]Object&gt;</span>
+<span class="gp">        apiVersion     &lt;string&gt;</span>
+<span class="gp">        blockOwnerDeletion     &lt;boolean&gt;</span>
+<span class="gp">        controller     &lt;boolean&gt;</span>
+<span class="gp">        kind   &lt;string&gt;</span>
+<span class="gp">        name   &lt;string&gt;</span>
+<span class="gp">        uid    &lt;string&gt;</span>
+<span class="gp">    resourceVersion   &lt;string&gt;</span>
+<span class="gp">    selfLink  &lt;string&gt;</span>
+<span class="gp">    uid       &lt;string&gt;</span>
+<span class="gp">spec &lt;Object&gt;</span>
+</pre></div>
+</div>
+<p>To find out more about different attributes, you can use</p>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">PS C:\Users\windows_user&gt;</span> kubectl explain pod.metadata
+<span class="go">KIND:     Pod</span>
+<span class="go">VERSION:  v1</span>
+
+<span class="gp">RESOURCE: metadata &lt;Object&gt;</span>
+
+<span class="go">DESCRIPTION:</span>
+<span class="go">    Standard object&#39;s metadata. More info:</span>
+<span class="go">    https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata</span>
+
+<span class="go">    ObjectMeta is metadata that all persisted resources must have, which</span>
+<span class="go">    includes all objects users must create.</span>
+</pre></div>
+</div>
+</section>
+<section id="create-a-deployment">
+<h2>Create a Deployment</h2>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl create deployment hello-node --image=registry.k8s.io/e2e-test-images/agnhost:2.39 -- /agnhost netexec --http-port=8080</span>
+
+<span class="go">kubectl get deployments</span>
+<span class="go">kubectl get pods</span>
+<span class="go">kubectl get events</span>
+</pre></div>
+</div>
+</section>
+<section id="create-a-service">
+<h2>Create a Service</h2>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl expose deployment hello-node --type=LoadBalancer --port=8080</span>
+<span class="go">kubectl get services</span>
+</pre></div>
+</div>
+<p>Open <code class="docutils literal notranslate"><span class="pre">localhost:8080</span></code> on your browser.</p>
+<p>Remove deployment and service.</p>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">PS C:\Users\windows_user&gt;</span> kubectl delete service hello-node
+<span class="go">service &quot;hello-node&quot; deleted</span>
+
+<span class="gp">PS C:\Users\windows_user&gt;</span> kubectl delete deployment hello-node
+<span class="go">deployment.apps &quot;hello-node&quot; deleted</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

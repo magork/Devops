@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>3. Deploy Documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="deploy-documentation">
+<h1>3. Deploy Documentation</h1>
+<ol class="arabic simple">
+<li><p>Create a new project named <code class="docutils literal notranslate"><span class="pre">docs-as-code</span></code> into your userspace (the link will be <code class="docutils literal notranslate"><span class="pre">https://github.com/YOURUSERNAME/docs-as-code</span></code>)</p></li>
+<li><p>Clone to project locally using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;github.com:YOURUSERNAME/docs-as-code.git</span></code></p></li>
+<li><p>Change the directory to the newly cloned project <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">docs-as-code</span></code></p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">sphinx-quickstart</span></code></p></li>
+<li><p>Update documentation</p></li>
+<li><p>Build documentation <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code></p></li>
+<li><p>Create a new directory and copy the documentation into it</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a documentation directory</span>
+mkdir<span class="w"> </span>docs
+
+<span class="c1"># copy the build content to the docs directory</span>
+cp<span class="w"> </span>-r<span class="w"> </span>build/html/*<span class="w"> </span>docs/
+</pre></div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>Push local changes to GitHub using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code></p></li>
+<li><p>Enable gh-page from Project Settings - Pages - Deploy from a branch (select master) - /docs and press Save</p></li>
+<li><p>An automated pipeline will start to build and deploy your documentation.</p></li>
+<li><p>Go to the repository page, bottom right you will find Environments: github-pages - View deployment</p></li>
+</ol>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

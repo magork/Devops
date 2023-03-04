@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>2. Running “Hello World”</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="running-hello-world">
+<h1>2. Running “Hello World”</h1>
+<p>Because Docker is installed next to the WSL we need to use <strong>Windows Powershell</strong>.</p>
+<p>Running the <code class="docutils literal notranslate"><span class="pre">wsl</span></code> command with list and verbose arguments:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wsl<span class="w"> </span>-l<span class="w"> </span>-v
+</pre></div>
+</div>
+<p>we should see</p>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">PS C:\Users\skillab&gt;</span> wsl -l -v
+<span class="go">NAME                   STATE           VERSION</span>
+<span class="go">docker-desktop-data    Running         2</span>
+<span class="go">Ubuntu                 Running         2</span>
+<span class="go">docker-desktop         Running         2</span>
+</pre></div>
+</div>
+<p>To see if the docker is available we can run</p>
+<div class="highlight-dosbatch notranslate"><div class="highlight"><pre><span></span>PS C:\Users\skillab<span class="p">&gt;</span> docker --help
+
+Usage:  docker [OPTIONS] COMMAND
+
+A self-sufficient runtime for containers
+</pre></div>
+</div>
+<p>To test if the Docker is installed correctly we can run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>hello-world
+</pre></div>
+</div>
+<p>Docker uses isolated containers to run its processes. A process that runs on a host is called a container. The host could be local or remote. When a user runs the <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code> command, a container process is launched that is isolated from the host by having its own file system, networking, and isolated process tree.</p>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

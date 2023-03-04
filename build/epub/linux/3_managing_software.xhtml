@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>3. Managing Software</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="managing-software">
+<h1>3. Managing Software</h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>RHEL</strong> is essentially a set of RPM packages grouped to form an operating system. It is built around the Linux kernel and includes thousands of packages that are digitally signed, tested, and certified.</p>
+</div>
+<p>A software package is a group of files organized in a directory structure and metadata that makes up a software application. Files contained in a package include installable scripts, configuration files, library files, commands, and related documentation.</p>
+<p>All metadata related to packages is stored at a central location and includes information such as package versioning, the location it is installed at, checksum values, and a list of included files with their attributes.</p>
+<p>Usually, software packages follow a standard naming convention.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>name.version.release.architecture</p>
+</div>
+<section id="useful-dnf-and-rpm-commands">
+<h2>Useful dnf and rpm commands</h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dnf<span class="w"> </span>search<span class="w"> </span>KEYWORD<span class="w">          </span><span class="c1"># Search package details for the given string</span>
+
+dnf<span class="w"> </span>info<span class="w"> </span>KEYWORD<span class="w">            </span><span class="c1"># Display details about a package or group of packages</span>
+
+dnf<span class="w"> </span>provides<span class="w"> </span>*/KEYWORD<span class="w">      </span><span class="c1"># Find what package provides the given value</span>
+
+rpm<span class="w"> </span>-ql<span class="w"> </span>package_name<span class="w">        </span><span class="c1"># List files in package</span>
+
+rpm<span class="w"> </span>-qf<span class="w"> </span>file_name<span class="w">           </span><span class="c1"># Find packege that owns the file</span>
+</pre></div>
+</div>
+</section>
+<section id="todo">
+<h2>TODO</h2>
+<ul class="simple">
+<li><p>dnf: find packages containing a file named <code class="docutils literal notranslate"><span class="pre">httpd</span></code></p></li>
+<li><p>dnf: install Apache HTTP Server</p></li>
+<li><p>rpm: find which package owns the <code class="docutils literal notranslate"><span class="pre">/etc/fedora-release</span></code> file (to get the info start with <code class="docutils literal notranslate"><span class="pre">rpm</span> <span class="pre">--help</span></code> | grep what)</p></li>
+<li><p>rpm: find what other files were installed by the above packet</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Installing new software</p>
+<p>There are lots of different ways to install software on Linux systems. Installing directly from your distro’s official software repositories is the safest option, but sometimes the application or version you want simply isn’t available that way. When installing via any other mechanism, make sure you’re getting the files from an official source for the project in question. |</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Planning is for those who don’t know how to troubleshoot.</p>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

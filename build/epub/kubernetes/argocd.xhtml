@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>3. ArgoCD</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="argocd">
+<h1>3. ArgoCD</h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Argo CD is a GitOps-based continuous delivery platform for Kubernetes applications. It provides a way to declaratively manage applications deployed in a Kubernetes cluster, using Git as the source of truth for application definitions and configurations.</p>
+</div>
+<p>Application definitions, configurations, and environments should be declarative and version controlled. Application deployment and lifecycle management should be automated, auditable, and easy to understand.</p>
+<p>Argo CD continuously monitors the state of the deployed applications and automatically syncs them with the desired state defined in Git. If a drift is detected between the deployed application and the desired state, Argo CD will automatically reconcile the drift to bring the application back to the desired state.</p>
+<p>Some key features of Argo CD include:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>GitOps: Using Git as the source of truth for application definitions and configurations.</p></li>
+<li><p>Continuous Deployment: Automatically syncing deployed applications with the desired state defined in Git.</p></li>
+<li><p>Drift Detection and Reconciliation: Detecting and automatically reconciling any drift between deployed applications and the desired state.</p></li>
+<li><p>Role-Based Access Control: Defining and enforcing fine-grained access control policies for Argo CD users.</p></li>
+<li><p>Application Management: Managing the lifecycle of applications, including rollouts, rollbacks, and scaling.</p></li>
+</ol>
+</div></blockquote>
+<p>Argo CD provides a simple and efficient way to manage applications deployed in a Kubernetes cluster while ensuring that the deployed applications are always in sync with the desired state defined in Git.</p>
+<section id="install-argocd">
+<h2>Install ArgoCD</h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>create<span class="w"> </span>namespace<span class="w"> </span>argocd
+kubectl<span class="w"> </span>apply<span class="w"> </span>-n<span class="w"> </span>argocd<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+</pre></div>
+</div>
+<p>Access The Argo CD API Server</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>patch<span class="w"> </span>svc<span class="w"> </span>argocd-server<span class="w"> </span>-n<span class="w"> </span>argocd<span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;{&quot;spec&quot;: {&quot;type&quot;: &quot;LoadBalancer&quot;}}&#39;</span>
+</pre></div>
+</div>
+<p>Port Forwarding</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>port-forward<span class="w"> </span>svc/argocd-server<span class="w"> </span>-n<span class="w"> </span>argocd<span class="w"> </span><span class="m">8080</span>:443
+</pre></div>
+</div>
+<p>Login Using The CLI</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>-n<span class="w"> </span>argocd<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>argocd-initial-admin-secret<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&quot;{.data.password}&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-d<span class="p">;</span><span class="w"> </span><span class="nb">echo</span>
+</pre></div>
+</div>
+<p>Remove everything</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>delete<span class="w"> </span>namespace<span class="w"> </span>argocd
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

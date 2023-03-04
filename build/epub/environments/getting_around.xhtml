@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>2. Getting around</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="getting-around">
+<h1>2. Getting around</h1>
+<section id="a-sense-of-location">
+<h2>1. A sense of location</h2>
+<p>Always know where are you</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">pwd</span>
+</pre></div>
+</div>
+<p>Now to the command itself. <code class="docutils literal notranslate"><span class="pre">pwd</span></code> is an abbreviation of “print working directory”. All it does is print out the shell’s current working directory. But what is a working directory?</p>
+<p>One important concept to understand is that the shell has a notion of a default location in which any file operations will take place. This is its working directory. If you try to create new files or directories, view existing files, or even delete them, the shell will assume you are looking for them in the current working directory unless you take steps to specify otherwise. So it’s quite important to keep an idea of what directory the shell is “in” at any given time, after all, deleting files from the wrong directory could be disastrous. If you are ever in any doubt, the <code class="docutils literal notranslate"><span class="pre">pwd</span></code> command will tell you exactly what the current working directory is.</p>
+<p>You can change the working directory using the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command, an abbreviation for “change directory”.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Too many roots
+Beware: although the <code class="docutils literal notranslate"><span class="pre">/</span></code> directory is sometimes referred to as the <code class="docutils literal notranslate"><span class="pre">root</span></code> directory, the word <code class="docutils literal notranslate"><span class="pre">root</span></code> has another meaning. <code class="docutils literal notranslate"><span class="pre">root</span></code> is also the name that has been used for the superuser since the early days of Unix.</p>
+</div>
+<section id="understanding-what-you-re-running">
+<h3>Understanding what you’re running</h3>
+<p>Executing commands without understanding what they do, is the best way to fail. To get more information you can look at the help documentation or read the manual.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># getting the documentation for the command</span>
+<span class="nb">pwd</span><span class="w"> </span>--help
+
+<span class="c1"># Reading the manual</span>
+man<span class="w"> </span><span class="nb">pwd</span>
+</pre></div>
+</div>
+</section>
+<section id="what-is-here">
+<h3>What is here?</h3>
+<p>Executing commands in the terminal sometimes feels like searching for something in the dark. We need to get more information about the current location.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># list all the files and directories in the current location</span>
+ls
+
+ls<span class="w"> </span>--help
+<span class="c1"># ls - command</span>
+<span class="c1"># --help - argument</span>
+<span class="c1"># think of the arguments as parameters input for functions</span>
+</pre></div>
+</div>
+<p>We rarely use simple <code class="docutils literal notranslate"><span class="pre">ls</span></code>, we use.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>-l
+<span class="c1"># or</span>
+ll
+
+ls<span class="w"> </span>-ltrha
+<span class="c1"># -l                         use a long listing format</span>
+<span class="c1"># -t                         sort by modification time, newest first</span>
+<span class="c1"># -r, --reverse              reverse order while sorting</span>
+<span class="c1"># -h, --human-readable       with -l and -s, print sizes like 1K 234M 2G, etc.</span>
+<span class="c1"># -a, --all                  do not ignore entries starting with.</span>
+</pre></div>
+</div>
+</section>
+<section id="relative-and-absolute-paths">
+<h3>Relative and absolute paths</h3>
+<p>Most of the examples we’ve looked at so far use relative paths. That is, the place you end up at depends on your current working directory. Consider trying to cd into the <code class="docutils literal notranslate"><span class="pre">/etc</span></code> folder. If you’re already in the root directory that will work fine:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/
+<span class="c1"># and</span>
+<span class="nb">cd</span><span class="w"> </span>etc
+
+<span class="c1"># or</span>
+<span class="nb">cd</span><span class="w"> </span>/etc
+</pre></div>
+</div>
+</section>
+<section id="finding-home">
+<h3>Finding home</h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linux_user@linux_machine:/$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/
+linux_user@linux_machine:/$<span class="w"> </span><span class="nb">pwd</span>
+/
+linux_user@linux_machine:/$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>home
+linux_user@linux_machine:/home$<span class="w"> </span>ls
+total<span class="w"> </span>12K
+drwxr-xr-x<span class="w">  </span><span class="m">3</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">4</span>.0K<span class="w"> </span>Aug<span class="w"> </span><span class="m">25</span><span class="w"> </span><span class="m">12</span>:49<span class="w"> </span>.
+drwxr-xr-x<span class="w"> </span><span class="m">12</span><span class="w"> </span>linux_user<span class="w"> </span>linux_user<span class="w"> </span><span class="m">4</span>.0K<span class="w"> </span>Oct<span class="w"> </span><span class="m">25</span><span class="w"> </span><span class="m">14</span>:58<span class="w"> </span>linux_user
+drwxr-xr-x<span class="w"> </span><span class="m">19</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">4</span>.0K<span class="w"> </span>Nov<span class="w">  </span><span class="m">4</span><span class="w"> </span><span class="m">10</span>:53<span class="w"> </span>..
+</pre></div>
+</div>
+<p>Try out</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># home of the user</span>
+<span class="nb">cd</span><span class="w"> </span>~
+
+<span class="c1"># going back to the previous directory</span>
+<span class="nb">cd</span><span class="w"> </span>-
+
+<span class="c1"># moving one step closer to /, getting to a level up</span>
+<span class="nb">cd</span><span class="w"> </span>..
+</pre></div>
+</div>
+</section>
+</section>
+<section id="creating-your-first-directory">
+<h2>2. Creating your first directory</h2>
+<p>TODO:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Create 3 different directories: <code class="docutils literal notranslate"><span class="pre">dir1</span></code> <code class="docutils literal notranslate"><span class="pre">dir2</span></code> <code class="docutils literal notranslate"><span class="pre">dir3</span></code></p></li>
+<li><p>Remove the 2nd one: <code class="docutils literal notranslate"><span class="pre">dir2</span></code></p></li>
+<li><p>Remove the 1st and 3rd one: <code class="docutils literal notranslate"><span class="pre">dir1</span></code> <code class="docutils literal notranslate"><span class="pre">dir3</span></code></p></li>
+<li><p>Create a directory with subdirectories: <code class="docutils literal notranslate"><span class="pre">parent/child/grandchild</span></code></p></li>
+<li><p>Remove them: <code class="docutils literal notranslate"><span class="pre">parent/child/grandchild</span></code></p></li>
+</ul>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># change the directory to the home of the user</span>
+<span class="nb">cd</span><span class="w"> </span>~
+
+<span class="c1"># create a new sandbox directory where we will work from now</span>
+mkdir<span class="w"> </span>sandbox
+
+<span class="c1"># check that directory was created</span>
+ls<span class="w"> </span>-ltrha
+
+<span class="c1"># Change the directory to the</span>
+<span class="nb">cd</span><span class="w"> </span>sandbox
+
+<span class="c1"># Creating multiple directories</span>
+mkdir<span class="w"> </span>dir1<span class="w"> </span>dir2<span class="w"> </span>dir3
+
+<span class="c1"># Removing directories</span>
+rmdir<span class="w"> </span>dir2
+rmdir<span class="w"> </span>dir1<span class="w"> </span>dir3
+
+<span class="c1"># To create a directory structure</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>parent/child/grandchild
+
+mkdir<span class="w"> </span>--help
+rmdir<span class="w"> </span>--help
+
+rmdir<span class="w"> </span>-p<span class="w"> </span>parent/child/grandchild/
+</pre></div>
+</div>
+</section>
+<section id="pipe-and-redirection">
+<h2>3. Pipe and Redirection</h2>
+<section id="redirection">
+<h3>Redirection</h3>
+<p>Most shells offer the ability to alter the way that application input and output flows. This can direct output away from the terminal and into files or other applications, or otherwise read input from files instead of the terminal.</p>
+<p>All applications have three unique streams that connect them to the outside world.</p>
+<p>These are referred to as :</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Standard Input, or stdin</p></li>
+<li><p>Standard Output, or stdout</p></li>
+<li><p>Standard Error, or stderr.</p></li>
+</ul>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/sandbox
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;This is a test&quot;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">echo</span></code> just prints its arguments back out again (hence the name). But combine it with a redirect, and you have got a way to easily create small test files:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;This is a test&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>test_1.txt
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;This is a second test&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>test_2.txt
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;This is a third test&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>test_3.txt
+
+ls
+
+<span class="c1"># Create a list of the existing files</span>
+<span class="c1"># &gt; replace the content</span>
+
+ls<span class="w"> </span>&gt;<span class="w"> </span>listoffiles
+<span class="c1"># &gt;&gt; append to the content</span>
+
+ls<span class="w"> </span>&gt;&gt;<span class="w"> </span>listoffiles
+</pre></div>
+</div>
+</section>
+<section id="reading-files">
+<h3>Reading files</h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># find out how to use the read file application</span>
+cat<span class="w"> </span>--help
+
+<span class="c1"># getting the manual of the cat command</span>
+man<span class="w"> </span>cat
+
+cat<span class="w"> </span>test*1.txt<span class="w"> </span>test*2.txt<span class="w"> </span>test_3.txt
+
+cat<span class="w"> </span>test_?.txt
+
+cat<span class="w"> </span>test_*
+
+cat<span class="w"> </span>t*<span class="w"> </span>&gt;<span class="w"> </span>combined.txt
+
+cat<span class="w"> </span>listoffiles<span class="w"> </span>&gt;&gt;<span class="w"> </span>combined.txt
+
+cat<span class="w"> </span>combined.txt
+
+less<span class="w"> </span>combined.txt
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you consider both case sensitivity and escaping, a good rule of thumb is to keep your file names all lowercase, with only letters, numbers, underscores, and hyphens. For files, there is usually also a dot and a few characters on the end to indicate the type of file it is (referred to as the “file extension”). This guideline may seem restrictive, but if you end up using the command line with any frequency you will be glad you stuck to this pattern.|</p>
+</div>
+</section>
+<section id="redirecting-standard-error">
+<h3>Redirecting Standard Error</h3>
+<p>On occasion, we need to redirect standard error instead of standard output. This works in the same way, but we need to specify the exact stream.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>does-not-exist<span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>log
+</pre></div>
+</div>
+</section>
+<section id="piping-between-applications">
+<h3>Piping Between Applications</h3>
+<p>The final action that we can perform is to direct the output of one application into another one. This is commonly referred to as piping and uses the | operator instead</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wc<span class="w"> </span>--help
+man<span class="w"> </span>wc
+
+ls<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc
+
+wc<span class="w"> </span>-l<span class="w"> </span>combined.txt
+
+uniq<span class="w"> </span>--help
+man<span class="w"> </span>uniq
+
+cat<span class="w"> </span>combined.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+sort<span class="w"> </span>combined.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+</pre></div>
+</div>
+</section>
+</section>
+<section id="moving-and-manipulating-files">
+<h2>4. Moving and manipulating files</h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>dir1<span class="w"> </span>dir2
+
+cp<span class="w"> </span>listoffiles<span class="w"> </span>dir1
+
+cp<span class="w"> </span>dir1/listoffiles<span class="w"> </span>dir2
+
+rm<span class="w"> </span>-rf<span class="w"> </span>dir1
+</pre></div>
+</div>
+</section>
+<section id="hidden-files">
+<h2>5. Hidden files</h2>
+<p>Hidden files and directories are commonly used to store configuration data and settings, are hidden, so they don’t clutter the view. There is nothing special about them, but they don’t show while using the simple <code class="docutils literal notranslate"><span class="pre">ls</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/sandbox
+
+cp<span class="w"> </span>combined.txt<span class="w"> </span>.combined.txt
+
+ls
+
+ls<span class="w"> </span>--help
+
+mkdir<span class="w"> </span>.hidden
+
+cp<span class="w"> </span>combined.txt<span class="w"> </span>.hidden
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unlike graphical interfaces, rm does not move files to a folder called <code class="docutils literal notranslate"><span class="pre">trash</span></code> or similar. Instead, it deletes them totally, utterly and irrevocably.
+You need to be ultra careful with the parameters you use with rm to make sure you are only deleting the files you intend to.</p>
+<p>You should take particular care when using wildcards, as it is easy to accidentally delete more files than you intended.
+An errant space character in your command can change it completely: <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">t*</span></code> means “delete all the files starting with t”, whereas <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">t</span> <span class="pre">*</span></code> means “delete the file t as well as any file whose name consists of zero or more characters, which would be everything in the directory!</p>
+<p>If you are at all uncertain use the <code class="docutils literal notranslate"><span class="pre">-i</span></code> (interactive) option to rm, which will prompt you to confirm the deletion of each file; enter Y to delete it, N to keep it, and press Ctrl-C to stop the operation entirely.|</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Writing 1 line of code takes 1 minute, and knowing what line of code takes 1 year</p>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

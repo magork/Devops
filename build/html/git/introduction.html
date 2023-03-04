@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>0. Introduction &mdash; DevOps 1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/max_width.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Best practices" href="bestpractices.html" />
+    <link rel="prev" title="9. TODO" href="../linux/TODO.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            DevOps
+              <img src="../_static/Logo.jpg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Curriculum</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../curriculum/curriculum.html">Class Curriculum</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Introduction to DevOps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/foreword.html">Foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/devops.html">1. Introduction to DevOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/TODO.html">2. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Environments</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../environments/environments.html">1. Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environments/getting_around.html">2. Getting around</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environments/setup_infra.html">3. Setup developing infrastructure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environments/TODO.html">4. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Linux</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../linux/introduction.html">0. Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/1_managing_users_and_groups.html">1. Managing Users and Groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/2_file_management.html">2. File management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/3_managing_software.html">3. Managing Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/4_service_management.html">4. Service Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/5_process_management.html">5. Process management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/6_system_logging.html">6. System logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/7_linux_file_systems.html">7. Linux File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/8_terminal_tuning.html">8. Terminal tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/TODO.html">9. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Git</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bestpractices.html">1. Best practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TODO.html">2. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DocOps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docs_as_code/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs_as_code/installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs_as_code/deploy_docs.html">3. Deploy Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs_as_code/sphinx.html">2. What is sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs_as_code/TODO.html">4. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scripting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../scripting/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting/shell_style_guide.html">1. Shell Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting/examples.html">2. Working with aliases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting/TODO.html">3. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/data_structures.html">2. Variables and Data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/conditions_loops.html">3. Loops and conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/libraries.html">4. Libraries and modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/functions.html">5. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/classes.html">6. Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/documentation.html">7. Documenting your code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/yourfirstcli.html">8. Your first CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/rules.html">9. Python Language Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/TODO.html">10. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Containers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../containers/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/installation.html">1. Windows installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/helloworld.html">2. Running “Hello World”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/workingwithdocker.html">3. Working with Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/usingdockerfile.html">4. Using Dockerfile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/management.html">5. Container management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/orchestration.html">6. Container orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/TODO.html">7. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Kubernetes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/gettingstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/deployments.html">2. Creating a Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/argocd.html">3. ArgoCD</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pipelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pipelines/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipelines/jenkins.html">2. Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipelines/github.html">3. GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipelines/python_cli.html">2. Python CLI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Ansible</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ansible/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansible/installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansible/architecture.html">2. Ansible architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansible/gettingstarted.html">3. Getting Started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../project/introduction.html">0. Introduction</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DevOps</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">0. Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/git/introduction.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction">
+<h1>0. Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h1>
+<section id="what-is-git">
+<h2>What is GIT?<a class="headerlink" href="#what-is-git" title="Permalink to this heading"></a></h2>
+<p>Git is a distributed version control system. This means that a local clone of the project is a complete version control repository. These fully-functional local repositories make it easy to work offline or remotely. Developers commit their work locally, and then sync their copy of the repository with the copy on the server. This paradigm differs from centralized version control where clients must synchronize code with a server before creating new versions of code.</p>
+<p>Every time work is saved, Git creates a <strong>commit</strong>. A commit is a snapshot of all files at a point in time. If a file has not changed from one commit to the next, Git uses the previously stored file.</p>
+<p><strong>Branches</strong>, which are lightweight pointers to work in progress, manage this separation. Once work created in a branch is finished, it can be merged back into the team’s main (or trunk) branch.</p>
+</section>
+<section id="connect-to-github">
+<h2>Connect to GitHub<a class="headerlink" href="#connect-to-github" title="Permalink to this heading"></a></h2>
+<p>There are 2 ways to log in to GitHub:</p>
+<ul class="simple">
+<li><p>keys</p></li>
+<li><p>credentials (username and password)</p></li>
+</ul>
+<p>Generate the key from your local machine and upload it to GitHub</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># In a DevOps environment we want to have as much information as possible</span>
+ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;user@hostname&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="what-exactly-is-ed25519">
+<h2>What exactly is ed25519?<a class="headerlink" href="#what-exactly-is-ed25519" title="Permalink to this heading"></a></h2>
+<p>ed25519 is a new cryptography solution that provides the Edwards-curve Digital Signature Algorithm (EdDSA).</p>
+<p>Similarly, not all software solutions currently support ed25519, but SSH implementations in most modern operating systems do.</p>
+<p>Why is ed25519 Key a Good Idea?</p>
+<p>When compared to the most common type of SSH key - RSA - ed25519 offers several interesting advantages:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>It is faster to generate and verify</p></li>
+<li><p>it is more secure collision resilience - that is, it is more resistant to hash-function collision attacks (types of attacks where large numbers of keys are generated with the hope of getting two different keys to have matching hashes)</p></li>
+<li><p>The keys are smaller, which means they are easier to transfer and copy/paste.</p></li>
+</ol>
+</div></blockquote>
+<p>Read the newly generated key</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>~/.ssh/id_ed25519.pub
+
+<span class="c1"># Upload the newly generated key to GitHub</span>
+<span class="c1"># https://github.com/settings/keys</span>
+
+<span class="c1"># Clone projects on your local machine</span>
+</pre></div>
+</div>
+<p>We will learn how to use the terminal, console version of git, how to use vim, and fix merge conflicts.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># install git</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git
+
+<span class="c1"># verify that git is installed</span>
+git<span class="w"> </span>--version
+
+<span class="c1"># change directory to home</span>
+<span class="nb">cd</span><span class="w"> </span>~
+
+<span class="c1"># creates a directory</span>
+mkdir<span class="w"> </span>sandbox
+<span class="nb">cd</span><span class="w"> </span>sandbox
+
+<span class="c1"># download the project</span>
+
+git<span class="w"> </span>clone<span class="w"> </span>git@github.com:SKILLAB-DevOps/git.git
+<span class="nb">cd</span><span class="w"> </span>git<span class="w"> </span><span class="c1"># change directory to project</span>
+git<span class="w"> </span>branch<span class="w"> </span>-a<span class="w"> </span><span class="c1"># check what branches are available</span>
+git<span class="w"> </span>checkout<span class="w"> </span>master<span class="w"> </span><span class="c1"># move to a different branch</span>
+git<span class="w"> </span>checkout<span class="w"> </span>develop<span class="w"> </span><span class="c1"># move back to develop</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/yourName<span class="w"> </span><span class="c1"># create a new branch with your name</span>
+</pre></div>
+</div>
+</section>
+<section id="create-a-scripts-project">
+<h2>1. Create a scripts project<a class="headerlink" href="#create-a-scripts-project" title="Permalink to this heading"></a></h2>
+<p>Create a new project in your userspace named <code class="docutils literal notranslate"><span class="pre">scripts</span></code>. Press on the Kitten on the top left then new.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clone the new project</span>
+git<span class="w"> </span>clone<span class="w"> </span>git@github.com:&lt;USER&gt;/scripts.git
+
+<span class="c1"># Change the directory to your new repository</span>
+<span class="nb">cd</span><span class="w"> </span>scripts
+
+<span class="c1"># Config GitHub information</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;MAIL&quot;</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;&lt;USER&gt;&quot;</span>
+
+<span class="c1"># Create a new script</span>
+vim<span class="w"> </span>HelloWorld
+
+<span class="c1"># Add Hello World in it</span>
+<span class="c1"># Check the files that will be pushed to remote</span>
+git<span class="w"> </span>status
+
+<span class="c1"># Add the HelloWorld in git staging</span>
+git<span class="w"> </span>add<span class="w"> </span>HelloWorld
+
+<span class="c1"># Add a commit message</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Initial commit&quot;</span>
+
+<span class="c1"># Push the code</span>
+git<span class="w"> </span>push
+</pre></div>
+</div>
+</section>
+<section id="add-your-presentation-into-skillab-git-project">
+<h2>2. Add your presentation into Skillab - git project<a class="headerlink" href="#add-your-presentation-into-skillab-git-project" title="Permalink to this heading"></a></h2>
+<p>Create a markdown file with your name and some information use at least 5 different syntaxes from <a class="reference external" href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet</a></p>
+<p>I have added an example, but be creative:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>**Claudiu**
+*DevOps<span class="w"> </span>Engineer*
+Likes:
+
+<span class="w">  </span>*<span class="w"> </span><span class="o">[</span>x<span class="o">]</span><span class="w"> </span>coding
+<span class="w">  </span>*<span class="w"> </span><span class="o">[</span>x<span class="o">]</span><span class="w"> </span>teaching
+<span class="w">  </span>*<span class="w"> </span><span class="o">[</span>x<span class="o">]</span><span class="w"> </span>video<span class="w"> </span>games
+<span class="w">  </span>*<span class="w"> </span><span class="o">[</span>x<span class="o">]</span><span class="w"> </span>mma
+</pre></div>
+</div>
+<p>I would like to have in the presentation:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>name</p></li>
+<li><p>profession</p></li>
+<li><p>hobbies</p></li>
+<li><p>why are you here?</p></li>
+<li><p>do you like DevOps?</p></li>
+<li><p>what would you like more?</p></li>
+<li><p>what would you like less</p></li>
+</ol>
+</div></blockquote>
+</section>
+<section id="how-to">
+<h2>How to<a class="headerlink" href="#how-to" title="Permalink to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vim<span class="w"> </span>presentations.md<span class="w"> </span><span class="c1"># keep this name so we can have some merge conflicts</span>
+
+git<span class="w"> </span>add<span class="w"> </span>presentations.md
+<span class="c1"># or</span>
+<span class="c1"># pay attention it adds everything</span>
+
+git<span class="w"> </span>add<span class="w"> </span>--all
+
+<span class="c1"># now press the letter &quot;i&quot; to insert</span>
+<span class="c1"># when you are done writing press the ESCAPE key</span>
+
+<span class="c1"># write :wq and press ENTER</span>
+
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Message&quot;</span><span class="w"> </span><span class="c1"># Keep message informative</span>
+
+git<span class="w"> </span>push
+</pre></div>
+</div>
+</section>
+<section id="solving-merge-conflicts">
+<h2>Solving merge conflicts<a class="headerlink" href="#solving-merge-conflicts" title="Permalink to this heading"></a></h2>
+<p>To resolve a Git merge conflict, follow these steps:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Identify the conflicting file(s): Git will mark the conflicts in the affected files with conflict markers.</p></li>
+<li><p>Open the conflicting file(s) and locate the conflict markers.</p></li>
+<li><p>Choose which version to keep or manually edit the file to include the changes you want.</p></li>
+<li><p>Remove the conflict markers (e.g. “&lt;&lt;&lt;&lt;&lt;&lt;&lt;”).</p></li>
+<li><p>Commit the resolved file(s).</p></li>
+<li><p>Repeat the process for any other conflicting files.</p></li>
+</ol>
+</div></blockquote>
+<p>It’s important to carefully review the changes and make sure the resulting file is what you intended before committing. You may also want to consider using a merge tool to assist with resolving conflicts.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../linux/TODO.html" class="btn btn-neutral float-left" title="9. TODO" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bestpractices.html" class="btn btn-neutral float-right" title="1. Best practices" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, skillab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

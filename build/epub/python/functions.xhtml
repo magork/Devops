@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>5. Functions</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="functions">
+<h1>5. Functions</h1>
+<p>Functions - blocks of code that are designed to do one specific job.</p>
+<section id="using-functions">
+<h2>Using functions</h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Display a simple greeting.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        None</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
+
+<span class="n">hello_world</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Passing arguments to the function</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hello_name</span><span class="p">(</span><span class="n">username</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Display a simple greeting with one parameters.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        username (str): The username of your user</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello World </span><span class="si">{</span><span class="n">username</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+
+<span class="n">hello_name</span><span class="p">(</span><span class="s1">&#39;skillab&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="multiple-arguments">
+<h3>Multiple arguments</h3>
+<p>A function call would require multiple arguments since a function specification could contain many parameters.
+There are many different ways to give arguments to your functions:
+- keyword arguments, where each argument consists of a variable name and a value, lists and dictionaries of values
+- positional arguments, which must be in the same order as the parameters were written.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Positional arguments</span>
+<span class="k">def</span> <span class="nf">hello_name</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Display a simple greeting with 2 parameters.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        username (str): The username of your user</span>
+<span class="sd">        email (str): The email of your user</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello World </span><span class="si">{</span><span class="n">username</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> with </span><span class="si">{</span><span class="n">email</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+
+<span class="n">hello_name</span><span class="p">(</span><span class="s1">&#39;skillab&#39;</span><span class="p">,</span> <span class="s1">&#39;admin@skillab.com&#39;</span><span class="p">)</span>
+
+<span class="c1"># Keyword arguments</span>
+<span class="k">def</span> <span class="nf">hello_name</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Display a simple greeting with 2 parameters.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        username (str): The username of your user</span>
+<span class="sd">        email (str): The email of your user</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello World </span><span class="si">{</span><span class="n">username</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> with </span><span class="si">{</span><span class="n">email</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+
+<span class="n">hello_name</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;skillab&#39;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s1">&#39;admin@skillab.com&#39;</span><span class="p">)</span>
+<span class="n">hello_name</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="s1">&#39;admin@robotdreams.com&#39;</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="s1">&#39;robotdreams&#39;</span><span class="p">)</span>
+
+<span class="c1"># Best practice is to specify default values and also document them</span>
+<span class="k">def</span> <span class="nf">hello_name</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;skillab&#39;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s1">&#39;admin@skillab.com&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Display a simple greeting with 2 parameters.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        username (str): The username of your user</span>
+<span class="sd">        email (str): The email of your user</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello World </span><span class="si">{</span><span class="n">username</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> with </span><span class="si">{</span><span class="n">email</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+
+<span class="n">hello_name</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="s1">&#39;admin@robotdreams.com&#39;</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="s1">&#39;robotdreams&#39;</span><span class="p">)</span>
+<span class="n">hello_name</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;robotdreams&#39;</span><span class="p">)</span>
+<span class="n">hello_name</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="return-values">
+<h3>Return Values</h3>
+<p>A function’s result should not always be displayed on screen.
+A value or combination of values may be returned after processing some data, as an alternative.
+A return value is the value that the function returns.
+A value is taken from a function’s return statement and sent back to the line that called the function.
+Return values let you relocate a lot of your program’s manual tasks into functions, which can reduce the code itself.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hello_name</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;skillab&#39;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s1">&#39;admin@skillab.com&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Display a simple greeting with 2 parameters.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        username (str): The username of your user</span>
+<span class="sd">        email (str): The email of your user</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        string: a string with information about user and mail</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Hello World </span><span class="si">{</span><span class="n">username</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> with </span><span class="si">{</span><span class="n">email</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">!&quot;</span>
+
+<span class="n">hello_world</span> <span class="o">=</span> <span class="n">hello_name</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

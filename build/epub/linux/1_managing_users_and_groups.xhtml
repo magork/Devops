@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>1. Managing Users and Groups</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="managing-users-and-groups">
+<h1>1. Managing Users and Groups</h1>
+<p>For an authorized person to gain access to the system, a user account must be created on the system. User and group account information is stored in several files:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/etc/passwd
+/etc/shadow
+/etc/group
+/etc/gshadow
+</pre></div>
+</div>
+<section id="etc-passwd">
+<h2>/etc/passwd</h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> file contains all user’s properties. Each line contains information about one user account. There are seven fields per line entry separated by a colon (:).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user_name:x:UID:GID:comments:home_directory:shell
+
+<span class="c1"># user_name: `/^[a-z0-9-*]+$/`. Should not use uppercase letters or special characters</span>
+<span class="c1"># x: password placeholder</span>
+<span class="c1"># UID: a unique number. UIDs between 0 and 999 are reserved for system accounts</span>
+<span class="c1"># GID: a number that corresponds with a group entry in /etc/group</span>
+<span class="c1"># comments: info about the user</span>
+<span class="c1"># home_directory: the default location is /home/user_name</span>
+<span class="c1"># shell: user&#39;s default shell</span>
+</pre></div>
+</div>
+</section>
+<section id="etc-shadow">
+<h2>/etc/shadow</h2>
+<p>This file stores the encrypted user’s password along with other info.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user_name:encrypted_passwords:lastchg_days:min_days:max_days:warn_days:inactive_days:disabled_days:
+
+<span class="c1"># user_name: `/^[a-z0-9-*]+$/`. Should not use uppercase letters or special characters</span>
+<span class="c1"># encrypted_passwords: May be empty. An exclamation mark shows that the user is locked</span>
+<span class="c1"># lastchg_days: number of days in epoch time since the password was changed</span>
+<span class="c1"># min_days: minimum number of days that must pass before the user can change the passwords</span>
+<span class="c1"># max_days: maximum number of days before the user gets password expiration warnings</span>
+<span class="c1"># warn_days**: number of days for which the user gets password expiration warnings</span>
+<span class="c1"># inactive_days: maximum number of days for user inactivity</span>
+<span class="c1"># disabled_days: number of days in epoch time after which the account expires</span>
+</pre></div>
+</div>
+<p>Most of the above parameters can be changed with <strong>password</strong>, <strong>usermod</strong>, and/or <strong>chage</strong> commands.</p>
+</section>
+<section id="etc-group">
+<h2>/etc/group</h2>
+<p>This file contains group information. Every user must be a member of at least one group, which is called <em>the primary group</em>. Additional groups may be created and users assigned to them.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>group_name:x:GID:user_list
+
+<span class="c1"># group_name: a unique group name</span>
+<span class="c1"># x: password placeholder. Usually, group passwords are not used. It may contain an encrypted password</span>
+<span class="c1"># GID: the group ID</span>
+<span class="c1"># user_list: a comma-delimited list of users assigned to the group. The user&#39;s primary group is defined in /etc/password</span>
+</pre></div>
+</div>
+</section>
+<section id="configuration-files">
+<h2>Configuration files</h2>
+<p>The files mentioned above contain only user and group information and attributes. There are additional files/directories that configure default values for various attributes.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/etc/default/useradd
+/etc/login.defs
+/etc/skel/
+</pre></div>
+</div>
+</section>
+<section id="user-management">
+<h2>User management</h2>
+<p>Normally user management is done via an external application, but to understand the flow we will do them manually.</p>
+<section id="create-a-new-user">
+<h3>Create a new user</h3>
+<p>Create 2 new users: one unprivileged and one privileged that will be part of the unprivileged group.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># create an user named unprivileged_user</span>
+useradd<span class="w"> </span>unprivileged_user
+
+<span class="c1"># check the unprivileged_user, we will see that is part of a group called unprivileged_user</span>
+id<span class="w"> </span>unprivileged_user
+
+<span class="c1"># create an user named privileged_user part of the unprivileged_user group</span>
+useradd<span class="w"> </span>privileged_user<span class="w"> </span>-G<span class="w"> </span>unprivileged_user
+
+<span class="c1"># check the privileged_user we will see that has 2 groups:</span>
+<span class="c1"># primary group: privileged_user</span>
+<span class="c1"># secondary group: unprivileged_user</span>
+id<span class="w"> </span>privileged_user
+</pre></div>
+</div>
+<p>Creating 3 new groups, 3 new users, and share access.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>groupadd<span class="w"> </span>--help
+
+groupadd<span class="w"> </span>developers
+
+groupadd<span class="w"> </span>operations
+
+groupadd<span class="w"> </span>devopsgroup
+
+useradd<span class="w"> </span>--help
+
+useradd<span class="w"> </span>dev
+
+useradd<span class="w"> </span>ops
+
+useradd<span class="w"> </span>devops
+
+usermod<span class="w"> </span>--help
+
+usermod<span class="w"> </span>-G<span class="w"> </span>developers<span class="w"> </span>devops
+
+usermod<span class="w"> </span>-aG<span class="w"> </span>operations<span class="w"> </span>devops
+
+id<span class="w"> </span>--help
+
+id<span class="w"> </span>devops
+</pre></div>
+</div>
+<section id="set-a-password-for-the-newly-created-user">
+<h4>Set a password for the newly created user</h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>passwd<span class="w"> </span>devops
+
+passwd<span class="w"> </span>--help
+
+chage<span class="w"> </span>-l<span class="w"> </span>devops
+
+chage<span class="w"> </span>--help
+</pre></div>
+</div>
+</section>
+<section id="remove-users-and-groups">
+<h4>Remove users and groups</h4>
+<p>When removing users that are part of a group, pay attention.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>userdel<span class="w"> </span>--help
+
+userdel<span class="w"> </span>-r<span class="w"> </span>unprivileged_user
+
+userdel<span class="w"> </span>-r<span class="w"> </span>privileged_user
+
+groupdel<span class="w"> </span>--help
+
+groupdel<span class="w"> </span>unprivileged_user
+
+groupdel<span class="w"> </span>privileged_user
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="todo">
+<h2>TODO</h2>
+<ol class="arabic">
+<li><p>create a user named <em>alice</em> with UID and GID set to <em>3001</em></p></li>
+<li><p>create a user named <em>bob</em> with home directory in <em>/opt</em></p></li>
+<li><p>create a user named <em>john</em> with comment field set to <em>John Doe</em></p></li>
+<li><p>create a user named <em>minecraft</em> with:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>UID <em>9990</em></p></li>
+<li><p>GID <em>9990</em></p></li>
+<li><p>home directory in <em>/usr/games</em></p></li>
+<li><p>do not create the home directory</p></li>
+<li><p>no login privileges</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>set a password for alice</p></li>
+<li><p>create a group named <em>datamanagement</em> with GID 9001</p></li>
+<li><p>add <em>alice</em> and <em>bob</em> to the <em>billing</em> group</p></li>
+<li><p>configure password aging for <em>alice</em> with <strong>chage</strong> command:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>password validity 31 days</p></li>
+<li><p>the user should receive warnings 7 days before password expiration</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>lock the <em>minecraft</em> account and password</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Passwords are like underwear. Change them often, don’t share them, and don’t leave them out for others to see.</p>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

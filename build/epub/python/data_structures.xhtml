@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>2. Variables and Data structures</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="variables-and-data-structures">
+<h1>2. Variables and Data structures</h1>
+<section id="variables">
+<h2>Variables</h2>
+<p>Variables Are Labels - Variables are often described as boxes you can store values in - a variable references a certain value.</p>
+<p>When declaring a variable we use the syntax: <cite>name = value</cite></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>We can also do multiple assignments</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="naming">
+<h2>Naming</h2>
+<p>When you are using variables in Python, you need to adhere to a few rules and guidelines. Breaking some of these rules will cause errors; other guidelines just help you write code that is easier to read and understand. Be sure to keep the following variable rules in mind:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Variable names can contain only <strong>letters</strong>, <strong>numbers</strong>, and <strong>underscores</strong>.</p></li>
+<li><p>Variable names are <strong>case-sensitive</strong> (<code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">Name</span></code> and <code class="docutils literal notranslate"><span class="pre">NAME</span></code> are three different variables)</p></li>
+<li><p>They can start with a <strong>letter or an underscore</strong>, but not with a number. For instance, you can call a variable <code class="docutils literal notranslate"><span class="pre">name_1</span></code> but not <code class="docutils literal notranslate"><span class="pre">1_name</span></code>.</p></li>
+<li><p><strong>Spaces are not allowed</strong> in variable names, but underscores can be used to separate words in variable names. For example, <code class="docutils literal notranslate"><span class="pre">first_name</span></code> works, but <code class="docutils literal notranslate"><span class="pre">first</span> <span class="pre">name</span></code> will cause errors.</p></li>
+<li><p><strong>Avoid using Python keywords</strong> and function names as variable names; that is, do not use words that Python has reserved for a particular programmatic purpose, such as the word print. Read more:  <a class="reference external" href="https://docs.python.org/3/reference/lexical_analysis.html#keywords">https://docs.python.org/3/reference/lexical_analysis.html#keywords</a></p></li>
+<li><p>Variable names should be <strong>short but descriptive</strong>. For example, <code class="docutils literal notranslate"><span class="pre">name</span></code> is better than <code class="docutils literal notranslate"><span class="pre">n</span></code>, <code class="docutils literal notranslate"><span class="pre">first_name</span></code> is better than <code class="docutils literal notranslate"><span class="pre">f_n</span></code>, and <code class="docutils literal notranslate"><span class="pre">name_length</span></code> is better than <code class="docutils literal notranslate"><span class="pre">length_of_persons_name</span></code>.</p></li>
+<li><p>Be careful when using the lowercase letter <code class="docutils literal notranslate"><span class="pre">l</span></code> and the uppercase letter <code class="docutils literal notranslate"><span class="pre">O</span></code> because they could be confused with the numbers <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">and</span> <span class="pre">0</span></code>.</p></li>
+</ul>
+</div></blockquote>
+<section id="naming-conventions">
+<h3>Naming conventions</h3>
+<p>In <strong>Python</strong> naming conventions will not affect your code, but will affect your way for working in the team (in other languages naming convention matters)</p>
+<p>We have 4 different ways of declaring:</p>
+<ol class="arabic simple">
+<li><p><strong>Snake case</strong> (ex: some_variable)</p></li>
+<li><p><strong>Screaming Snake case</strong> (ex: SOME_VARIABLE)</p></li>
+<li><p><strong>Pascal case</strong> (ex: SomeVariable)</p></li>
+<li><p><strong>Camel case</strong> (ex: someVariable)</p></li>
+</ol>
+<p>Read more about the Python conventions in <a class="reference external" href="https://peps.python.org/pep-0008/">https://peps.python.org/pep-0008/</a></p>
+<p><strong>I</strong> use them like this:</p>
+<ul class="simple">
+<li><p><strong>Snake case</strong> - for functions, methods, attributes, variables (this is the preferred way in Python)</p></li>
+</ul>
+<p>Function names should be lowercase, with words separated by underscores as necessary to improve readability.</p>
+<p>Is prefered <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">function_name():</span></code> not <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">functionName():</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">first_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter your name: &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Screaming Snake case</strong> - Constants</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">PI</span> <span class="o">=</span> <span class="mf">3.14</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Pascal case</strong> - defining class name.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
+   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+
+   <span class="k">def</span> <span class="nf">displayInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># class method</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Student Name: &#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="s1">&#39;, Age: &#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Camel case</strong>- to name some methods (ex: toJson, fromFile, updateFile) - because when you are using them they look like this <code class="docutils literal notranslate"><span class="pre">Student.displayInfo</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="data-types">
+<h2>Data types</h2>
+<p>In Python3.6, PEP 498 introduces a new kind of string literals: f-strings, or formatted string literals.</p>
+<p>Read more about f-strings <a class="reference external" href="https://docs.python.org/3/whatsnew/3.6.html#whatsnew36-pep498">https://docs.python.org/3/whatsnew/3.6.html#whatsnew36-pep498</a></p>
+</section>
+<section id="strings">
+<h2>1. Strings</h2>
+<p>In Python, strings are enclosed in either single or double quotation marks. Single quotes will not let variable pass, so be careful.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">single_name</span> <span class="o">=</span> <span class="s1">&#39;skillab&#39;</span>
+<span class="n">doubleName</span> <span class="o">=</span> <span class="s2">&quot;skillab&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Course name is &quot;</span> <span class="o">+</span> <span class="n">single_name</span><span class="p">)</span>
+<span class="c1"># or</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Course name is </span><span class="si">{</span><span class="n">single_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="string-manipulation">
+<h3>String Manipulation</h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;skillab&quot;</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
+
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;skillab&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;A&#39;</span><span class="p">))</span>
+
+<span class="c1"># How to find out all the available alternatives</span>
+<span class="nb">dir</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="magic-methods">
+<h3>Magic methods</h3>
+<p><code class="docutils literal notranslate"><span class="pre">__len__()</span></code></p>
+<p>One of the many magic methods in the Python programming language, <code class="docutils literal notranslate"><span class="pre">__len__</span></code> is primarily used to implement the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function because every time the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function is called, the magic method <code class="docutils literal notranslate"><span class="pre">__len__</span></code> is also called internally.</p>
+<p>After all is said and done, it returns an integer value larger than or equal to zero, which is the length of the object for which it was called.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;skillab&quot;</span><span class="o">.</span><span class="fm">__len__</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="s2">&quot;skillab&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="numbers">
+<h2>2. Numbers</h2>
+<p>Python supports two types of numbers:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>integers(whole numbers)</p></li>
+<li><p>floating point numbers(decimals).</p></li>
+</ul>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># When declaring a variable we use the syntax</span>
+<span class="c1"># name = value</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">xint</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">xfloat</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">universe_age</span> <span class="o">=</span> <span class="mi">14_000_000_000</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xint</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xfloat</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">universe_age</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">xint</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">xfloat</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">xint</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">xfloat</span><span class="p">))</span>
+</pre></div>
+</div>
+<section id="number-operations">
+<h3>Number operations</h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># add</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># subtract</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># multiply</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># divide</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># modulo</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="o">%</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="lists">
+<h2>3. Lists</h2>
+<p>A list is a collection of objects in a specific sequence.
+A list can contain anything you want, and there is no requirement that the items on it link to one another in any specific way.
+It’s a good idea to name your list in the plural, such as letters, numerals, or names, because lists typically contain many elements.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animals</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;python&quot;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>
+
+<span class="c1"># Lists are ordered collections, so you can access any element in a list by telling Python the position, or index, of the item desired. To access an element in a list, write the name of the list followed by the index of the item enclosed in square brackets.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="c1"># You can also format the result</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
+</pre></div>
+</div>
+<section id="list-manipulation">
+<h3>List Manipulation</h3>
+<p>The majority of lists you create will be dynamic, meaning that when your program executes, you’ll add, update and remove items from the list you’ve created.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add elements</span>
+<span class="n">animals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;monkey&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>
+
+<span class="c1"># Insert element at any position</span>
+<span class="n">animals</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;rabbit&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>
+
+<span class="c1"># Remove elements by position</span>
+<span class="k">del</span> <span class="n">animals</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>
+
+<span class="c1"># Removing an Item Using the pop() Method</span>
+<span class="c1"># Example want to remove a user from a list of active members and then add that user to a list of inactive members.</span>
+<span class="c1"># pop() with no argument last element</span>
+<span class="c1"># pop(1) 2nd element</span>
+<span class="n">popped_animal</span> <span class="o">=</span> <span class="n">animals</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+<span class="c1"># Remove elements by value</span>
+<span class="n">animals</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;python&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Only the first instance of the value you specify is removed by the <code class="docutils literal notranslate"><span class="pre">remove()</span></code> method.
+You’ll need to use a loop if there’s a chance that the value could appear more than once in the list to ensure that all instances are eliminated.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">digits</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="nb">min</span><span class="p">(</span><span class="n">digits</span><span class="p">)</span>
+<span class="nb">max</span><span class="p">(</span><span class="n">digits</span><span class="p">)</span>
+<span class="nb">sum</span><span class="p">(</span><span class="n">digits</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="list-organization">
+<h3>List Organization</h3>
+<p>Because you can’t always control the order in which your users submit their data, your lists will frequently be generated in an unpredictable order.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;rabbit&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="s1">&#39;monkey&#39;</span><span class="p">]</span>
+<span class="c1"># how long is the list</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>
+
+<span class="n">animals</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">animals</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># sort() is a irreversible procedure</span>
+<span class="c1"># if you need something temporary without affecting the original list use sorted(list_name)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Here is the original list:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Here is the sorted list:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">animals</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Here is the original list again:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When all the values are not lowercase, sorting a list alphabetically becomes a little more challenging.
+When determining a sort order, capital letters can be interpreted in a variety of ways, and specifying the precise order can be more difficult than we want to handle right now.</p>
+</div>
+</section>
+<section id="avoiding-index-errors-when-working-with-lists">
+<h3>Avoiding Index Errors When Working with Lists</h3>
+<p>When you are working with lists for the first time, one type of error is frequent to see is Index error.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;rabbit&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="s1">&#39;monkey&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+
+<span class="c1"># Instead of using last element by explicitly using position value we can use</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="dictionaries">
+<h2>4. Dictionaries</h2>
+<p>In Python, a dictionary is a collection of key-value pairs.
+Each key has a value associated with it, and you may use a key to get that value.
+The value of a key could be an integer, string, list, dictionary, or even another dictionary.
+In actuality, you may use any Python-created object as a value in a dictionary.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animals</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;reptile&#39;</span><span class="p">:</span> <span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="s1">&#39;primates&#39;</span><span class="p">:</span> <span class="s1">&#39;monkey&#39;</span><span class="p">,</span> <span class="s1">&#39;mammal&#39;</span><span class="p">:</span> <span class="s1">&#39;dog&#39;</span><span class="p">}</span>
+
+<span class="c1"># Accessing elements using key</span>
+<span class="n">animals</span><span class="p">[</span><span class="s1">&#39;primates&#39;</span><span class="p">]</span>
+
+<span class="c1"># Accessing keys</span>
+<span class="n">animals</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+<span class="c1"># Accessing values</span>
+<span class="n">animals</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+
+<span class="c1"># Loop through dictionary values</span>
+<span class="k">for</span> <span class="n">animal</span> <span class="ow">in</span> <span class="n">animals</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">animal</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
+
+<span class="n">muscle_cars</span> <span class="o">=</span> <span class="p">{</span>
+<span class="s2">&quot;brand&quot;</span><span class="p">:</span> <span class="s2">&quot;Dodge&quot;</span><span class="p">,</span>
+<span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;Challenger&quot;</span><span class="p">,</span>
+<span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1970</span>
+<span class="p">}</span>
+
+<span class="c1"># Add new elements in dictionary</span>
+<span class="n">muscle_cars</span><span class="p">[</span><span class="s2">&quot;color&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span>
+
+<span class="c1"># Update dictionary</span>
+<span class="n">muscle_cars</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">})</span>
+
+<span class="c1"># Remove items</span>
+<span class="c1"># `pop()` method removes the item with the specified key name</span>
+<span class="n">muscle_cars</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;color&quot;</span><span class="p">)</span>
+
+<span class="c1"># `popitem()` method removes the last inserted item</span>
+<span class="n">muscle_cars</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">)</span>
+
+<span class="c1"># `del` keyword removes the item with the specified key name</span>
+<span class="k">del</span> <span class="n">muscle_cars</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span>
+
+<span class="c1"># clear() method empties the dictionary</span>
+<span class="n">muscle_cars</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

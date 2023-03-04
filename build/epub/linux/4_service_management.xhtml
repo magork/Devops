@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>4. Service Management</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="service-management">
+<h1>4. Service Management</h1>
+<section id="the-linux-boot-process">
+<h2>The Linux Boot Process</h2>
+<p>Linux requires an initialization system during its boot and startup process.</p>
+<p>At the end of the boot process, the Linux kernel loads the <strong>init daemon</strong> (a system and service management mechanism) and passes control over to it and the startup process begins.</p>
+<p>During this step, the kernel initializes the first user space process, the init process with process ID 1, and then goes idle unless called again.</p>
+<p>Init daemon prepares the user space and brings the Linux host into an operational state by starting all other processes on the system.</p>
+<p>Below is a simplified overview of the entire Linux boot and startup process:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The system powers up. The BIOS does minimal hardware initialization and hands over control to - the bootloader</p></li>
+<li><p>The bootloader calls the kernel.</p></li>
+<li><p>The kernel loads an initial RAM disk that loads the system drives and then looks for the root file system</p></li>
+<li><p>Once the kernel is set up, it loads the init daemon</p></li>
+<li><p>init daemon takes over and continues to mount the host’s file systems and start services</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="systemd">
+<h2>systemd</h2>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>systemd</strong> (system daemon) is a system and service management mechanism used by modern Linux distributions.</p></li>
+<li><p>it has replaced older service management systems (SysVinit, Upstart)</p></li>
+<li><p>introduced parallel processing of startup scripts</p></li>
+<li><p>improved handling of service dependencies</p></li>
+<li><p>it is backward compatible with SysVinit scripts as described in the Linux Standard Base (LSB) specification</p></li>
+<li><p>systemd is the first process that starts at boot, and it is the last process that terminates at shutdown</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="systemd-units">
+<h2>systemd Units</h2>
+<p>systemd introduces the concept of <strong>systemd units</strong> and there are several types, such as a service unit, mount unit, socket unit and slice unit. Units are defined in unit configuration files, which include information about the unit type and its behavior.</p>
+<div class="line-block">
+<div class="line">Unit type  | Description |</div>
+</div>
+<div class="line-block">
+<div class="line">———–| ———– |</div>
+</div>
+<div class="line-block">
+<div class="line">Target     | A group of units that defines a synchronization point which is used at boot time to start the system in a particular state |</div>
+</div>
+<div class="line-block">
+<div class="line">Service    | A unit of this type starts, stops, restarts or reloads a service daemon such as Apache webserver |</div>
+</div>
+<div class="line-block">
+<div class="line">Socket     | A unit of this type activates a service when the service receives incoming traffic on a listening socket |</div>
+</div>
+<div class="line-block">
+<div class="line">Device     | A unit of this type implements device-based activation such as a device driver |</div>
+</div>
+<div class="line-block">
+<div class="line">Mount      | A unit of this type controls the file-system mount point |</div>
+</div>
+<div class="line-block">
+<div class="line">Automount  | A unit of this type provides and controls on-demand mounting of file systems |</div>
+</div>
+<div class="line-block">
+<div class="line">Swap       | A unit of this type encapsulates/activates/deactivates swap partition |</div>
+</div>
+<div class="line-block">
+<div class="line">Path       | A unit of this type monitors files/directories and activates/deactivates a service if the specified file or directory is accessed |</div>
+</div>
+<div class="line-block">
+<div class="line">Timer      | A unit of this type activates/deactivates specified service based on a timer or when the set time is elapsed |</div>
+</div>
+<div class="line-block">
+<div class="line">Snapshot   | A unit that creates and saves the current state of all running units. This state can be used to restore the system later |</div>
+</div>
+<div class="line-block">
+<div class="line">Slice      | A group of units that manages system resources such as CPU, and memory |</div>
+</div>
+<div class="line-block">
+<div class="line">Scope      | A unit that organizes and manages foreign processes |</div>
+</div>
+<p>The following table briefly explains the terms that the systemd uses to describe the status of units.</p>
+<div class="line-block">
+<div class="line">Status         | Description |</div>
+</div>
+<div class="line-block">
+<div class="line">————– | ———– |</div>
+</div>
+<div class="line-block">
+<div class="line">loaded         | The unit’s configuration file has been successfully read and processed |</div>
+</div>
+<div class="line-block">
+<div class="line">active exited  | Successfully executed the one-time configuration and after execution, the unit is neither running an active process nor waiting for an event |</div>
+</div>
+<div class="line-block">
+<div class="line">active running | Successfully executed the one-time configuration and after execution, the unit is running one or more active processes |</div>
+</div>
+<div class="line-block">
+<div class="line">active waiting | Successfully executed the one-time configuration and after execution, the unit is waiting for an event |</div>
+</div>
+<div class="line-block">
+<div class="line">inactive dead  | Either the one-time configuration failed to execute or not executed yet |</div>
+</div>
+</section>
+<section id="systemd-targets">
+<h2>systemd targets</h2>
+<p>systemd replaces traditional SysVinit <strong>runlevels</strong> with predefined groups of units called <strong>targets</strong>.</p>
+<p>Targets are usually defined according to the intended use of the system, and ensure that required dependencies for that use are met.</p>
+<p>The following table shows some standard preconfigured targets, the sysVinit runlevels they resemble and the use case they address.</p>
+<div class="line-block">
+<div class="line">Target     | Runlevel | Usage |</div>
+</div>
+<div class="line-block">
+<div class="line">———- | ——– | —– |</div>
+</div>
+<div class="line-block">
+<div class="line">rescue     | 1        | single user mode, for recovery of critical system components or configuration |</div>
+</div>
+<div class="line-block">
+<div class="line">multi-user | 2        | non-graphical multi-user console access, via local TTYs or network |</div>
+</div>
+<div class="line-block">
+<div class="line">graphical  | 5        | a GUI sessions. Typically, provides the user with a fully featured desktop environment |</div>
+</div>
+<div class="line-block">
+<div class="line">custom     | 4        | systemd allows any number of custom defined targets |</div>
+</div>
+<p>The standard LINUX kernel supports these seven different runlevels :</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>0 - System halt the system can be safely powered off with no activity.</p></li>
+<li><p>1 - Single user mode.</p></li>
+<li><p>2 - Multiple user mode with no NFS(network file system).</p></li>
+<li><p>3 - Multiple user mode under the command line interface and not under the graphical user interface.</p></li>
+<li><p>4 - User-definable.</p></li>
+<li><p>5 - Multiple user mode under GUI (graphical user interface) and this is the standard runlevel for most of the LINUX based systems.</p></li>
+<li><p>6 - Reboot which is used to restart the system.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="redhat-family">
+<h2>REDHAT FAMILY</h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span>list-units<span class="w"> </span>--type<span class="o">=</span>service<span class="w"> </span><span class="c1"># list all loaded service units</span>
+
+systemctl<span class="w"> </span>status<span class="w"> </span>NAME<span class="w">               </span><span class="c1"># check status for NAME service unit</span>
+
+systemctl<span class="w"> </span>is-enabled<span class="w"> </span>NAME<span class="w">           </span><span class="c1"># check if NAME service is enabled</span>
+
+systemctl<span class="w"> </span>start<span class="p">|</span>stop<span class="p">|</span>restart<span class="w"> </span>NAME<span class="w">   </span><span class="c1"># start|stop|restart NAME service</span>
+
+systemctl<span class="w"> </span>enable<span class="p">|</span>disable<span class="w"> </span>NAME<span class="w">       </span><span class="c1"># enable|disable NAME service</span>
+
+systemctl<span class="w"> </span>get-default<span class="w">               </span><span class="c1"># get default target</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Linux is user-friendly, but it’s just very selective about who its friends are.</p>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

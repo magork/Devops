@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>10. TODO</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="todo">
+<h1>10. TODO</h1>
+<section id="task-1">
+<h2>Task 1</h2>
+<p>Create a script <code class="docutils literal notranslate"><span class="pre">wikipython.py</span></code> that:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>reads a Wikipedia page: <code class="docutils literal notranslate"><span class="pre">https://en.wikipedia.org/wiki/Python_(genus)</span></code> (use requests command)</p></li>
+<li><p>extracts Species elements - python name (what kind of pythons are there) (use BeautifulSoup)</p></li>
+<li><p>save the output the to a new file</p></li>
+<li><p>append to the new file the last line that is the count of species</p></li>
+</ul>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+
+<span class="n">page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://en.wikipedia.org/wiki/Python_(genus)&#39;</span><span class="p">)</span>
+
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+
+<span class="n">table</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;table&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="task-2">
+<h2>Task 2</h2>
+<p>Create script weather that gives you the weather from <code class="docutils literal notranslate"><span class="pre">curl</span></code> <a class="reference external" href="https://wttr.in/(location">https://wttr.in/(location</a>)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>the location will be read from the keyboard - for example <code class="docutils literal notranslate"><span class="pre">weather</span> <span class="pre">Bucharest</span></code></p></li>
+<li><p>a test that you have the location</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="task-3">
+<h2>Task 3</h2>
+<p>Create a health check script <code class="docutils literal notranslate"><span class="pre">healthCheck</span></code> that looks at:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>date and time <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">datetime</span></code></p></li>
+<li><p>the uptime of the machine using <code class="docutils literal notranslate"><span class="pre">uptime</span></code></p></li>
+<li><p>how much disk <code class="docutils literal notranslate"><span class="pre">df</span></code> and memory usage <code class="docutils literal notranslate"><span class="pre">free</span></code> <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">psutil</span></code></p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

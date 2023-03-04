@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>1. Best practices</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="best-practices">
+<h1>1. Best practices</h1>
+<ol class="arabic simple">
+<li><p>Learn how to use <code class="docutils literal notranslate"><span class="pre">git</span></code> by playing <a class="reference external" href="https://ohmygit.org/">https://ohmygit.org/</a></p></li>
+<li><p>Keep your commits small and focused on a single change, try not to update more than one service or component.</p></li>
+<li><p>Write clear, concise commit messages, a good example is to use the: Backlog #Task_Number Commit message “AzureBoards #12345 Initial Commit”</p></li>
+<li><p>Regularly pull and merge from the main branch to avoid conflicts and keep your branch up-to-date.</p></li>
+<li><p>Test your code before committing.</p></li>
+<li><p>Use pull requests for code review and collaboration.</p></li>
+<li><p>Avoid large binary files in your Git repository ( we use other tools for packages and artifacts)</p></li>
+<li><p>Use .gitignore files to exclude files that should not be tracked by Git.</p></li>
+<li><dl class="simple">
+<dt>Use a branching strategy, such as Git Flow, to manage the development process.</dt><dd><dl class="simple">
+<dt>Is a git branching and release management workflow that helps developers keep track of features, hotfixes, and releases in bigger software projects.</dt><dd><ul class="simple">
+<li><p>Branch name for production releases: [master] - now <code class="docutils literal notranslate"><span class="pre">main</span></code> due to me2 movements</p></li>
+<li><p>Branch name for “next release” development: [develop]</p></li>
+<li><p>How to name your supporting branch prefixes</p></li>
+<li><p>Feature branches [feature/]</p></li>
+<li><p>Release branches [release/]</p></li>
+<li><p>Hotfix branches [hotfix/]</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li><p>Back up your repository regularly.</p></li>
+</ol>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

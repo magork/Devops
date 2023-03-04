@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7. Linux File Systems &mdash; DevOps 1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/max_width.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8. Terminal tuning" href="8_terminal_tuning.html" />
+    <link rel="prev" title="6. System logging" href="6_system_logging.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            DevOps
+              <img src="../_static/Logo.jpg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Curriculum</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../curriculum/curriculum.html">Class Curriculum</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Introduction to DevOps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/foreword.html">Foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/devops.html">1. Introduction to DevOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/TODO.html">2. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Environments</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../environments/environments.html">1. Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environments/getting_around.html">2. Getting around</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environments/setup_infra.html">3. Setup developing infrastructure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environments/TODO.html">4. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Linux</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">0. Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_managing_users_and_groups.html">1. Managing Users and Groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_file_management.html">2. File management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_managing_software.html">3. Managing Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_service_management.html">4. Service Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_process_management.html">5. Process management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_system_logging.html">6. System logging</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">7. Linux File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_terminal_tuning.html">8. Terminal tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TODO.html">9. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Git</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../git/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git/bestpractices.html">1. Best practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git/TODO.html">2. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DocOps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docs_as_code/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs_as_code/installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs_as_code/deploy_docs.html">3. Deploy Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs_as_code/sphinx.html">2. What is sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs_as_code/TODO.html">4. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scripting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../scripting/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting/shell_style_guide.html">1. Shell Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting/examples.html">2. Working with aliases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting/TODO.html">3. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/data_structures.html">2. Variables and Data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/conditions_loops.html">3. Loops and conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/libraries.html">4. Libraries and modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/functions.html">5. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/classes.html">6. Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/documentation.html">7. Documenting your code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/yourfirstcli.html">8. Your first CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/rules.html">9. Python Language Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/TODO.html">10. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Containers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../containers/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/installation.html">1. Windows installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/helloworld.html">2. Running “Hello World”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/workingwithdocker.html">3. Working with Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/usingdockerfile.html">4. Using Dockerfile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/management.html">5. Container management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/orchestration.html">6. Container orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containers/TODO.html">7. TODO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Kubernetes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/gettingstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/deployments.html">2. Creating a Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/argocd.html">3. ArgoCD</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pipelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pipelines/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipelines/jenkins.html">2. Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipelines/github.html">3. GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipelines/python_cli.html">2. Python CLI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Ansible</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ansible/introduction.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansible/installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansible/architecture.html">2. Ansible architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansible/gettingstarted.html">3. Getting Started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../project/introduction.html">0. Introduction</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DevOps</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">7. Linux File Systems</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/linux/7_linux_file_systems.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="linux-file-systems">
+<h1>7. Linux File Systems<a class="headerlink" href="#linux-file-systems" title="Permalink to this heading"></a></h1>
+<section id="data-storage-types">
+<h2># Data storage types<a class="headerlink" href="#data-storage-types" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt><strong>Block Level</strong></dt><dd><ol class="arabic simple">
+<li><p>offered directly to the Operating System as raw devices</p></li>
+<li><p>controlled by the OS, which can create partitions and file systems on them</p></li>
+<li><p>cannot be shared across servers</p></li>
+<li><p>types of block-level storage solutions: <strong>DAS</strong> (Direct Attached Storage), <strong>SAN</strong> (Storage Area Network) systems</p></li>
+<li><dl class="simple">
+<dt><strong>DAS</strong> (Direct Attached Storage):</dt><dd><ol class="arabic simple">
+<li><p>a DAS is anything that is directly attached to a server or computer</p></li>
+<li><p>a DAS device could be a single internal hard disk or multiple external hard disks (JBOD)</p></li>
+<li><p>there are no networking layers between the computer and the storage</p></li>
+<li><p>protocols: SATA, SCSI, SAS</p></li>
+<li><p>for redundancy and/or performance disks can be clustered in <strong>RAID</strong></p></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>SAN</strong> (Storage Area Network):</dt><dd><ol class="arabic simple">
+<li><p>an enterprise system that provides access to consolidated block-level data storage</p></li>
+<li><p>devices exposed by SANs appear to the operating system as locally-attached devices</p></li>
+<li><p>comprised of dedicated hardware managed by a specialized software</p></li>
+<li><p>protocols: <strong>FCP</strong> (SCSI over Fiber Channel), <strong>iSCSI</strong> (SCSI over TCP/IP), <strong>FCoE</strong></p></li>
+</ol>
+</dd>
+</dl>
+</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>File Level</strong></dt><dd><ol class="arabic simple">
+<li><p>data is stored as files and presented to OSes as a hierarchical directories structure</p></li>
+<li><p>file access management features, such as ownership and permissions</p></li>
+<li><p>can be shared across servers</p></li>
+<li><p>protocols: <strong>NFS</strong>, SMB/CIFS</p></li>
+<li><p>devices that offer file-level access are called <strong>NAS</strong> (Network Attached Systems)</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Object Level</strong></dt><dd><ol class="arabic simple">
+<li><p>an approach to address and manipulate data storage as discrete units, called objects</p></li>
+<li><p>keeps the blocks of data that make up a file together and adds all of its associated metadata to that file</p></li>
+<li><p>also adds extended metadata to the file and eliminates the hierarchical structure used in file storage, placing everything into a flat address space, called a storage pool</p></li>
+<li><p>it is generally slower than a file or block storage system, but it is highly scalable</p></li>
+<li><p>Amazon Simple Storage Service (Amazon S3), OpenStack Swift, Ceph</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+</ol>
+<section id="disks-partitions">
+<h3>Disks, partitions<a class="headerlink" href="#disks-partitions" title="Permalink to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>disks</strong> are just raw physical/virtual means to store data, what lacks is an organization</p></li>
+<li><p>that organization comes in the name of <strong>partition</strong></p></li>
+<li><p>a <strong>partition</strong> is a logical form of boundary, it is used to divide the disk into logical units</p></li>
+<li><p>partitions store data, but where are partitions stored?</p></li>
+<li><p>partitions are stored in what’s called a <strong>partition table</strong></p></li>
+<li><p>partition tables store the data associated with partitions, where a partition starts, where a partition, etc</p></li>
+<li><p>however partitions are not enough to store data in an ordered manner</p></li>
+<li><p>to do that we need a <strong>file system</strong></p></li>
+<li><p>a file system takes care of storing pieces of data - <strong>files</strong></p></li>
+<li><p>files themselves are just a bunch of data that are stored through the file system, which resides in a partition, which is recorded in a partition table, all of this, inside a disk</p></li>
+</ol>
+</section>
+<section id="logical-volume-manager">
+<h3>Logical Volume Manager<a class="headerlink" href="#logical-volume-manager" title="Permalink to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>LVM</strong> is a storage abstraction layer that allows for very flexible management of block-level devices</p></li>
+<li><p>provides features like the ability to add disk space to a logical volume and its filesystem while that filesystem is mounted and active</p></li>
+<li><p>allows for the collection of multiple physical hard drives and partitions into a single volume group which can then be divided into logical volumes.</p></li>
+<li><dl class="simple">
+<dt>terminology:</dt><dd><ol class="arabic simple">
+<li><p><strong>physical volumes</strong>: physical disks, or disk partitions</p></li>
+<li><p><strong>volume groups</strong>: seen as a <em>“virtual partition”</em> which comprises an arbitrary number of physical volumes</p></li>
+<li><p><strong>logical volumes</strong>: contained in the volume groups they can be bigger than any single physical volume you might have. These will be formatted with a file system</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+</ol>
+</section>
+<section id="file-systems">
+<h3>File systems<a class="headerlink" href="#file-systems" title="Permalink to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>a <strong>file system</strong> is a structured representation of data and a set of metadata describing this data</p></li>
+<li><p>it is applied to the storage during the <strong>format</strong> operation</p></li>
+<li><p>common file system types: ext3, <strong>ext4</strong>, <strong>xfs</strong>, fat, ntfs; nfs, smbfs/cifs</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="6_system_logging.html" class="btn btn-neutral float-left" title="6. System logging" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="8_terminal_tuning.html" class="btn btn-neutral float-right" title="8. Terminal tuning" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, skillab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

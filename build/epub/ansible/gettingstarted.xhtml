@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>3. Getting Started</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="getting-started">
+<h1>3. Getting Started</h1>
+<p>We will install Docker in WSL (there are some problems with getting the network working between wsl and docker containers)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>apt-transport-https<span class="w"> </span>ca-certificates<span class="w"> </span>curl<span class="w"> </span>gnupg-agent<span class="w"> </span>software-properties-common
+curl<span class="w"> </span>-fsSL<span class="w"> </span>https://download.docker.com/linux/ubuntu/gpg<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
+
+sudo<span class="w"> </span>add-apt-repository<span class="w"> </span><span class="s2">&quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu </span><span class="k">$(</span>lsb_release<span class="w"> </span>-cs<span class="k">)</span><span class="s2"> stable&quot;</span>
+
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>docker-ce<span class="w"> </span>docker-ce.cli<span class="w"> </span>containerd.io
+
+sudo<span class="w"> </span>service<span class="w"> </span>docker<span class="w"> </span>start<span class="w"> </span><span class="c1"># Run docker service</span>
+
+docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>managed_node1<span class="w"> </span>ubuntu
+
+docker<span class="w"> </span>ps
+
+<span class="c1"># Find out IPAddress</span>
+docker<span class="w"> </span>inspect<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;{{ .NetworkSettings.IPAddress }}&quot;</span><span class="w"> </span>nginx
+
+<span class="c1"># or</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>managed_node1<span class="w"> </span>bash
+hostname<span class="w"> </span>-I
+
+<span class="c1"># To access via SSH server it needs SSH server installed</span>
+apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>openssh-server
+
+<span class="c1"># allow to login as root account via SSH.</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;PermitRootLogin yes&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/ssh/sshd_config
+
+<span class="c1"># change the password for the account</span>
+passwd
+
+<span class="c1"># start the SSH service on the container.</span>
+/etc/init.d/ssh<span class="w"> </span>start
+
+<span class="c1"># check that the service is running</span>
+/etc/init.d/ssh<span class="w"> </span>status
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ansible is being used to configure virtual machines, we can configure containers (normally we create an image that we will reuse)</p>
+</div>
+<p>There are 2 ways of running Ansible:</p>
+<ol class="arabic simple">
+<li><p>Adhoc commands</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># This command will check if you have a connection to the managed nodes</span>
+ansible<span class="w"> </span>localhost<span class="w"> </span>-m<span class="w"> </span>ping
+
+<span class="c1"># This command will allow you to run a shell session on the managed node</span>
+ansible<span class="w"> </span>localhost<span class="w"> </span>-m<span class="w"> </span>shell<span class="w"> </span><span class="s2">&quot;hostname&quot;</span>
+
+ansible<span class="w"> </span>--version
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Playbook</p></li>
+</ol>
+<p>For this course, we will use containers.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

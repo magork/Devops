@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>1. Installation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/epub.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/max_width.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="installation">
+<h1>1. Installation</h1>
+<p>All major platforms’ installation instructions are available in the official Ansible documentation.
+Please check <a class="reference external" href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html">https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html</a>.</p>
+<p>There are 2 types of installation:</p>
+<ol class="arabic simple">
+<li><p>Linux package</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>software-properties-common
+sudo<span class="w"> </span>apt-add-repository<span class="w"> </span>--yes<span class="w"> </span>--update<span class="w"> </span>ppa:ansible/ansible
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ansible
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Python package</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3.11<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+pip<span class="w"> </span>install<span class="w"> </span>ansible
+</pre></div>
+</div>
+<p>I recommend using the pip for development and testing upcoming features, but relying on the Linux package for production.</p>
+<section id="graphical-user-interface">
+<h2>Graphical User Interface</h2>
+<p>Ansible is a <code class="docutils literal notranslate"><span class="pre">cli</span></code> application, but we can add a GUI interface for easy management - AWX</p>
+<p>Starting in version 18.0, the <a class="reference external" href="https://github.com/ansible/awx-operator">AWX Operator</a><span class="link-target"> [https://github.com/ansible/awx-operator]</span> is the preferred way to install AWX. Ansible operator is a Kubernetes operator, which means running it in a pod.</p>
+<p>AWX can also alternatively be installed and run in <a class="reference external" href="https://github.com/ansible/awx/blob/devel/tools/docker-compose/README.md">Docker</a><span class="link-target"> [https://github.com/ansible/awx/blob/devel/tools/docker-compose/README.md]</span>, but this install path is only recommended for development/test-oriented deployments and has no official published release.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>
