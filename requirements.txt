@@ -1,0 +1,5 @@
+sphinx
+sphinx-needs
+sphinx_rtd_theme
+recommonmark
+sphinx-copybutton

@@ -1,0 +1,12 @@
+# Code in browser
+jupyter
+
+# Creating a cli application
+click
+
+# Creating a webcrawler
+requests
+bs4
+
+# Getting system uptime
+uptime

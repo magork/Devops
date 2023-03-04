@@ -1,0 +1,7 @@
+# Application dependencies
+-r requirements.txt
+
+# Testing dependencies
+pylint
+mypy
+black
